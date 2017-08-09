@@ -6,34 +6,41 @@
 /*   By: abbenham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/07 08:46:48 by abbenham          #+#    #+#             */
-/*   Updated: 2017/08/08 18:34:34 by abbenham         ###   ########.fr       */
+/*   Updated: 2017/08/09 03:53:39 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(char *str)
+unsigned int	ft_strnlen(char *str, int limit)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] && limit > 0)
+	{
 		i++;
+		limit--;
+	}
 	return (i);
 }
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	d;
-	unsigned int	len_max;
+	unsigned int	len_dest;
+	unsigned int	len_src;
 	unsigned int	i;
 
 	i = 0;
-	d = ft_strlen(dest);
-	len_max = ft_strlen(dest) + ft_strlen(src);
-	while (src[i] && i + d < size)
+	len_src = 0;
+	len_dest = ft_strnlen(dest,size);
+	d = len_dest;
+	while (src[len_src])
+		len_src++;
+	while (src[i] && d < size - 1)
 	{
 		dest[d] = src[i];
 		i++;
 		d++;
 	}
-	return (len_max);
+	return (len_dest + len_src);
 }
