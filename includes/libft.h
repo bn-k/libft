@@ -23,6 +23,10 @@ typedef struct	s_list
 	struct	s_list *next;
 }				t_list;
 
+void	ft_putnuminfo(int nb, char *spec);
+void	ft_create_elem(void *data);
+void		ft_list_push_back(t_list **begin_list, void *content);
+void		ft_list_push_front(t_list **begin_list, void *content);
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);
 int		ft_strlen(const char *str);
@@ -54,6 +58,7 @@ char	*ft_strrev(char *str);
 size_t	ft_strnlen(const char *s, size_t maxlen);
 int		ft_megalen(int argc, char **argv);
 void	ft_putnbr(int n);
+void	ft_putnbrl(int n);
 void	ft_nbrendl(int nb);
 int		ft_atoi(const char *str);
 char	*ft_strnew(size_t size);

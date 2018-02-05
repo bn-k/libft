@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cttdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 16:49:45 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/16 18:47:14 by abbenham         ###   ########.fr       */
+/*   Created: 2017/11/19 06:23:23 by abbenham          #+#    #+#             */
+/*   Updated: 2017/11/19 06:51:28 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_cttdel(void *content, size_t content_size)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	content = NULL;
-	free(content);
-	content_size = 0;
+	t_list	*new;
+
+	while (lst)
+	{
+		lst = f(lst);
+		lst = lst->next;
+	}
+	if (!(new = (t_list*)malloc(sizeof(t_list))))
+		return (NULL);
+	return (new);
 }

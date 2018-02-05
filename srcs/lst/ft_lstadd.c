@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/19 06:23:23 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/19 06:51:28 by abbenham         ###   ########.fr       */
+/*   Created: 2017/11/16 17:05:44 by abbenham          #+#    #+#             */
+/*   Updated: 2017/11/16 18:52:23 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*ft_listing(t_list *first)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	while (first)
-	{
-		ft_putendl(first->content);
-		first = first->next;
-	}
+	t_list *tmp;
 
+	tmp = *alst;
+	*alst = new;
+	new->next = tmp;
 }
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
-{
-	t_list	*new;
 
-	while (lst)
-	{
-		lst = f(lst);
-		lst = lst->next;
-	}
-	if (!(new = (t_list*)malloc(sizeof(t_list))))
-		return (NULL);
-	return (new);
+void	ft_create_elem(void *data)
+{
+	(void)data;
 }
