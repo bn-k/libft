@@ -6,7 +6,7 @@
 .PHONY: clean $(NAME) re fclean all
 .SILENT:
 
-NAME = libft
+NAME = libft.a
 
 # compilation
 CC = clang
