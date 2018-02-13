@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "utf8.h"
 
 typedef struct	s_list
 {

@@ -82,6 +82,8 @@ SRC =\
      lst/ft_lstmap.c \
      lst/ft_lstdel.c \
      lst/ft_lstdelone.c \
+     utf8/ft_putchar_utf8.c \
+     utf8/ft_putstr_utf8.c \
 
 # SPECIAL CHARS
 
