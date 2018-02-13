@@ -2,10 +2,14 @@
 
 size_t	ft_putstr_utf8(wchar_t *ws)
 {
+	size_t len;
+
+	len = 0;
 	if (ws)
 		while (*ws)
 		{
-			ft_putchar_utf8(*ws);
+			len += ft_putchar_utf8(*ws);
 			ws++;
 		}
+	return (len);
 }
