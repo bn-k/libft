@@ -9,7 +9,7 @@
 # define SIX_BYTE 0x3f
 
 size_t 	ft_putchar_utf8(wchar_t wc);
-void	ft_putstr_utf8(wchar_t *ws);
+size_t	ft_putstr_utf8(wchar_t *ws);
 
 
 #endif
