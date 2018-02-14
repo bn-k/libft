@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 22:02:22 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/14 12:05:19 by abbenham         ###   ########.fr       */
+/*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
+/*   Updated: 2018/02/14 14:04:27 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-size_t	ft_putstr(char const *s)
+size_t	s_display(char *s, t_mark mk)
 {
 	size_t len;
-
+	
 	len = 0;
-	if (s)
-		while (*s)
-		{
-			ft_putchar(*s);
-			len++;
-			s++;
-		}
+	if (mk.width)
+		len = put_padding(mk.width - ft_strlen(s));
+	len += put_precision(s, mk.precis);
 	return (len);
 }

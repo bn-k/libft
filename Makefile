@@ -6,7 +6,7 @@
 .PHONY: clean $(NAME) re fclean all
 .SILENT:
 
-NAME = libft.a
+NAME = libftprintf.a
 
 # compilation
 CC = clang
@@ -19,71 +19,81 @@ D_OBJ = objs
 
 # sources
 SRC =\
-     strings/ft_strncat.c \
-     strings/ft_strnstr.c \
-     strings/ft_putstr_fd.c \
-     strings/ft_strequ.c \
-     strings/ft_strlen.c \
-     strings/ft_strclr.c \
-     strings/ft_strsplit.c \
-     strings/ft_strnlen.c \
-     strings/ft_strchr.c \
-     strings/ft_striteri.c \
-     strings/ft_strjoin.c \
-     strings/ft_strstr.c \
-     strings/ft_putendl.c \
-     strings/ft_strcat.c \
-     strings/ft_putendl_fd.c \
-     strings/ft_strdel.c \
-     strings/ft_strnequ.c \
-     strings/ft_strrchr.c \
-     strings/ft_strmap.c \
-     strings/ft_strncmp.c \
-     strings/ft_strcpy.c \
-     strings/ft_strmapi.c \
-     strings/ft_strtrim.c \
-     strings/ft_strnew.c \
-     strings/ft_putstr.c \
-     strings/ft_strlcat.c \
-     strings/ft_strdup.c \
-     strings/ft_striter.c \
-     strings/ft_strsub.c \
-     strings/ft_strncpy.c \
-     strings/ft_strcmp.c \
-     numbers/ft_putnbr.c \
-     numbers/ft_putnuminfo.c \
-     numbers/ft_putnbr_fd.c \
-     numbers/ft_atoi.c \
-     numbers/ft_itoa.c \
-     memory/ft_memcmp.c \
-     memory/ft_bzero.c \
-     memory/ft_memcpy.c \
-     memory/ft_memalloc.c \
-     memory/ft_memccpy.c \
-     memory/ft_memchr.c \
-     memory/ft_memset.c \
-     memory/ft_memdel.c \
-     memory/ft_memmove.c \
-     file/ft_display_file.c \
-     chars/ft_isdigit.c \
-     chars/ft_isascii.c \
-     chars/ft_isprint.c \
-     chars/ft_toupper.c \
-     chars/ft_putchar.c \
-     chars/ft_isalpha.c \
-     chars/ft_putchar_fd.c \
-     chars/ft_isalnum.c \
-     chars/ft_tolower.c \
-     lst/ft_lstadd.c \
-     lst/ft_list_push_params.c \
-     lst/ft_lstnew.c \
-     lst/ft_list_push_back.c \
-     lst/ft_list_push_front.c \
-     lst/ft_lstmap.c \
-     lst/ft_lstdel.c \
-     lst/ft_lstdelone.c \
-     utf8/ft_putchar_utf8.c \
-     utf8/ft_putstr_utf8.c \
+	 strings/ft_strncat.c \
+	 strings/ft_strnstr.c \
+	 strings/ft_putstr_fd.c \
+	 strings/ft_strequ.c \
+	 strings/ft_strlen.c \
+	 strings/ft_strclr.c \
+	 strings/ft_strsplit.c \
+	 strings/ft_strnlen.c \
+	 strings/ft_strchr.c \
+	 strings/ft_striteri.c \
+	 strings/ft_strjoin.c \
+	 strings/ft_strstr.c \
+	 strings/ft_putendl.c \
+	 strings/ft_strcat.c \
+	 strings/ft_putendl_fd.c \
+	 strings/ft_strdel.c \
+	 strings/ft_strnequ.c \
+	 strings/ft_strrchr.c \
+	 strings/ft_strmap.c \
+	 strings/ft_strncmp.c \
+	 strings/ft_strcpy.c \
+	 strings/ft_strmapi.c \
+	 strings/ft_strtrim.c \
+	 strings/ft_strnew.c \
+	 strings/ft_putstr.c \
+	 strings/ft_strlcat.c \
+	 strings/ft_strdup.c \
+	 strings/ft_striter.c \
+	 strings/ft_strsub.c \
+	 strings/ft_strncpy.c \
+	 strings/ft_strcmp.c \
+	 numbers/ft_putnbr.c \
+	 numbers/ft_putnuminfo.c \
+	 numbers/ft_putnbr_fd.c \
+	 numbers/ft_atoi.c \
+	 numbers/ft_itoa.c \
+	 memory/ft_memcmp.c \
+	 memory/ft_bzero.c \
+	 memory/ft_memcpy.c \
+	 memory/ft_memalloc.c \
+	 memory/ft_memccpy.c \
+	 memory/ft_memchr.c \
+	 memory/ft_memset.c \
+	 memory/ft_memdel.c \
+	 memory/ft_memmove.c \
+	 file/ft_display_file.c \
+	 chars/ft_isdigit.c \
+	 chars/ft_isascii.c \
+	 chars/ft_isprint.c \
+	 chars/ft_toupper.c \
+	 chars/ft_putchar.c \
+	 chars/ft_isalpha.c \
+	 chars/ft_putchar_fd.c \
+	 chars/ft_isalnum.c \
+	 chars/ft_tolower.c \
+	 lst/ft_lstadd.c \
+	 lst/ft_list_push_params.c \
+	 lst/ft_lstnew.c \
+	 lst/ft_list_push_back.c \
+	 lst/ft_list_push_front.c \
+	 lst/ft_lstmap.c \
+	 lst/ft_lstdel.c \
+	 lst/ft_lstdelone.c \
+	 utf8/ft_putchar_utf8.c \
+	 utf8/ft_putstr_utf8.c \
+	 printf/ft_printf.c \
+	 printf/test_1.c \
+	 printf/parser.c \
+	 printf/flags.c \
+	 printf/s_spec.c \
+	 printf/d_spec.c \
+	 printf/pourcent_spec.c \
+	 printf/display.c \
+	 printf/display_tools.c \
+
 
 # SPECIAL CHARS
 
@@ -118,6 +128,8 @@ build:
 	mkdir -p $(D_OBJ)
 	mkdir -p $(OBJS_DIRS)
 
+re: clean all
+
 clean:
 	rm -f $(LIBS)
 	rm -Rf $(OBJS_DIRS)
@@ -125,7 +137,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-re: fclean all
+	re: fclean all
 
 $(D_OBJ)/%.o: $(D_SRC)/%.c
 	echo "$(LOG_NOCOLOR)Create obj $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"

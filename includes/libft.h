@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:24:11 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/19 06:53:32 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/14 12:50:59 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include "utf8.h"
+# include "ft_printf.h"
 
 typedef struct	s_list
 {
@@ -31,7 +32,7 @@ void		ft_list_push_front(t_list **begin_list, void *content);
 void	ft_putchar(char c);
 void	ft_swap(int *a, int *b);
 int		ft_strlen(const char *str);
-void	ft_putstr(char const *s);
+size_t	ft_putstr(char const *s);
 void	ft_putendl(char const *s);
 void	*ft_memset(void *b, int c, size_t len);
 void	*ft_memalloc(size_t size);

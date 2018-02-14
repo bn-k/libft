@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   d_spec.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 22:02:22 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/14 12:05:19 by abbenham         ###   ########.fr       */
+/*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
+/*   Updated: 2018/02/14 14:17:42 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-size_t	ft_putstr(char const *s)
+#include "ft_printf.h"
+
+size_t 	pourcent_spec(va_list ap, const char *format, t_mark mk)
 {
-	size_t len;
-
-	len = 0;
-	if (s)
-		while (*s)
-		{
-			ft_putchar(*s);
-			len++;
-			s++;
-		}
-	return (len);
+	(void)ap;
+	(void)format;
+	(void)mk;
+	ft_putchar('%');
+	return (1);
 }
