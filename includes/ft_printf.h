@@ -37,13 +37,13 @@ t_mark		init(void);
 
 size_t	new_format(va_list ap, const char **format);
 size_t 	s_spec(va_list ap, const char *format, t_mark mk);
+size_t 	ss_spec(va_list ap, const char *format, t_mark mk);
 size_t 	d_spec(va_list ap, const char *format, t_mark mk);
+size_t	p_spec(va_list ap, const char *format, t_mark mk);
 size_t 	pourcent_spec(va_list ap, const char *format, t_mark mk);
 
 // display
 size_t	s_display(char *s, t_mark mk);
+size_t	ss_display(wchar_t *s, t_mark mk);
 
-//display tools
-size_t		put_padding(int len);
-size_t		put_precision(char *s, int len);
 #endif

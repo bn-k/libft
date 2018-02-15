@@ -1,47 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display_tools.c                                    :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/14 11:19:17 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/14 12:45:13 by abbenham         ###   ########.fr       */
+/*   Created: 2018/02/15 17:07:47 by abbenham          #+#    #+#             */
+/*   Updated: 2018/02/15 17:59:04 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-size_t		put_padding(int len)
+size_t	ft_nbrlen(int nb)
 {
-	int i;
-
-	i = 0;
-	if (len <= 0)
+	if (nb == INT_MIN)
+		return (11);
+	if (nb == 0)
 		return (0);
-	while (i < len)
-	{
-		ft_putchar(' ');
-		i++;
-	}
-	return ((size_t)len);
-}
-
-
-size_t		put_precision(char *s, int len)
-{
-	size_t ret;
-
-	if (len == -1)
-		return (ft_putstr(s));
-	else
-	ret = 0;
-	while (*s && len)
-	{
-		ft_putchar(*s);
-		len--;
-		ret++;
-		s++;
-	}
-	return (ret);
+	if (nb < 10 && nb > 0)
+		return (1);
+	if (nb < 0)
+		return (1 + ft_nbrlen(nb * -1));
+	if (nb > 9)
+		return (1 + ft_nbrlen(nb / 10));
+	return (0);
 }

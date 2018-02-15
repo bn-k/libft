@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   s_spec.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/14 14:04:27 by abbenham         ###   ########.fr       */
+/*   Created: 2018/02/14 08:21:18 by abbenham          #+#    #+#             */
+/*   Updated: 2018/02/15 16:59:51 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "ft_printf.h"
 
-size_t	s_display(char *s, t_mark mk)
+size_t	ss_spec(va_list ap, const char *format, t_mark mk)
 {
 	size_t len;
-	
-	len = 0;
-	if (mk.width)
-		len = put_padding(mk.width - ft_strlen(s));
-	len += put_precision(s, mk.precis);
+	(void)format;
+	(void)ap;
+	(void)mk;
+	wchar_t *s;
+
+	if (!(s = va_arg(ap, wchar_t *)))
+		return (-1);
+	len = ss_display(s, mk);
 	return (len);
 }

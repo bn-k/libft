@@ -55,6 +55,8 @@ SRC =\
 	 numbers/ft_putnbr_fd.c \
 	 numbers/ft_atoi.c \
 	 numbers/ft_itoa.c \
+	 numbers/ft_nbrlen.c \
+	 numbers/ft_putnbr_base.c \
 	 memory/ft_memcmp.c \
 	 memory/ft_bzero.c \
 	 memory/ft_memcpy.c \
@@ -89,10 +91,12 @@ SRC =\
 	 printf/parser.c \
 	 printf/flags.c \
 	 printf/s_spec.c \
+	 printf/p_spec.c \
+	 printf/ss_spec.c \
 	 printf/d_spec.c \
 	 printf/pourcent_spec.c \
-	 printf/display.c \
-	 printf/display_tools.c \
+	 printf/s_display.c \
+	 printf/ss_display.c \
 
 
 # SPECIAL CHARS

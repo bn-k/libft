@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:24:11 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/14 12:50:59 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/15 19:21:51 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <string.h>
 # include "utf8.h"
 # include "ft_printf.h"
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 typedef struct	s_list
 {
@@ -25,6 +27,8 @@ typedef struct	s_list
 	struct	s_list *next;
 }				t_list;
 
+size_t	ft_print_adress(long unsigned int nbr);
+size_t	ft_nbrlen(int nb);
 void	ft_putnuminfo(int nb, char *spec);
 void	ft_create_elem(void *data);
 void		ft_list_push_back(t_list **begin_list, void *content);
