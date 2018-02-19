@@ -15,8 +15,10 @@
 const t_function_type func_tab[] = {
 	{'%', pourcent_spec},
 	{'s', s_spec},
-	{'d', d_spec},
 	{'S', ss_spec},
+	{'d', d_spec},
+	{'i', d_spec},
+	{'D', dd_spec},
 	{'p', p_spec}
 };
 
@@ -30,7 +32,7 @@ size_t	new_format(va_list ap, const char **format)
 	count = 0;
 	(*format)++;
 	format_parsing(format, &mk);
-	while (i < 5)
+	while (i < 7)
 	{
 		if (*format[0] == func_tab[i].type)
 			count = func_tab[i].t_function_type(ap, *format, mk);

@@ -15,20 +15,22 @@
 
 void	test(void)
 {
-	int i = 0;
+	int ft;
+	int i;
 	printf("___________ 0 ______________\n");
-	i = ft_printf("Test de %s: -%%-\n", "%%");
-	ft_putnbrl(i);
-	i = printf("Test de %s: -%%-\n", "%%");
-	ft_putnbrl(i);
-	i = ft_printf("d -%d- et -%d-\n", 1,42);
-	ft_putnbrl(i);
-	i = printf("d -%d- et -%d-\n", 1,42);
-	ft_putnbrl(i);
-	i = ft_printf("s -%6.4s- et -%s-\n", "bien","fait");
-	ft_putnbrl(i);
-	i = printf("s -%6.4s- et -%s-\n", "bien","fait");
-	ft_putnbrl(i);
+	//i = ft_printf("Test de %d: -%' #d-\n",55, 23);
+	//ft_putnbrl(i);
+	ft = ft_printf("TEST : %hd\n", 0x44ff551100);
+	i = printf("TEST : %ld\n", 0x44ff551100);
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("% d<\n",-42) ;
+	i = printf("% d<\n", -42);
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("%.10d<\n",333) ;
+	i = printf("%.10d<\n", 333);
+	printf("%d - %d\n", ft, i);
 }
 
 void	test_1(void)

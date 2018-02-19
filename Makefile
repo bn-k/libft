@@ -51,12 +51,13 @@ SRC =\
 	 strings/ft_strncpy.c \
 	 strings/ft_strcmp.c \
 	 numbers/ft_putnbr.c \
+	 numbers/ft_putnbr_ill.c \
 	 numbers/ft_putnuminfo.c \
 	 numbers/ft_putnbr_fd.c \
 	 numbers/ft_atoi.c \
 	 numbers/ft_itoa.c \
 	 numbers/ft_nbrlen.c \
-	 numbers/ft_putnbr_base.c \
+	 numbers/ft_print_adress.c \
 	 memory/ft_memcmp.c \
 	 memory/ft_bzero.c \
 	 memory/ft_memcpy.c \
@@ -89,13 +90,17 @@ SRC =\
 	 printf/ft_printf.c \
 	 printf/test_1.c \
 	 printf/parser.c \
+	 printf/modifier.c \
 	 printf/flags.c \
+	 printf/mark.c \
 	 printf/s_spec.c \
 	 printf/p_spec.c \
 	 printf/ss_spec.c \
 	 printf/d_spec.c \
+	 printf/dd_spec.c \
 	 printf/pourcent_spec.c \
 	 printf/s_display.c \
+	 printf/d_display.c \
 	 printf/ss_display.c \
 
 

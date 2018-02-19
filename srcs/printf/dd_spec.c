@@ -13,13 +13,13 @@
 
 #include "ft_printf.h"
 
-size_t	d_spec(va_list ap, const char *format, t_mark mk)
+size_t	dd_spec(va_list ap, const char *format, t_mark mk)
 {
-	int d;
+	int long long d;
 	(void)format;
 	(void)mk;
 	
-	printf("test-> %d- \n", mk.l);
-	d = va_arg(ap, int);
-	return (d_display((int long long)d, mk));
+	d = va_arg(ap, int long long);
+	ft_putnbr_ill(d);
+	return (ft_nbrlen(d));
 }

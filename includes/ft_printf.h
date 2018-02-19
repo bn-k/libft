@@ -7,18 +7,32 @@
 typedef struct s_mark
 {
 	char	minus;
+	char 	space;
+	char	apos;
 	char	plus;
 	char	zero;
 	char 	hash;
-	int		width;
-	int		precis;
+	int	width;
+	int	precis;
 } t_mark;
+
+typedef enum s_num
+{
+	char h;
+} t_num;
 
 typedef struct s_function_type
 {
 	char 	type;
 	size_t	(*t_function_type)(va_list, const char*, t_mark);
 } t_function_type;
+
+typedef struct s_mod
+{
+	char 	mod;
+	char 	mod2;
+	char	*name;
+} t_mod;
 
 
 //test
@@ -30,8 +44,10 @@ void	test_3(char *s, char *s2);
 int		ft_printf(const char *format, ...);
 
 // parsing
+void	flags(const char **format, t_mark *mk);
 void	format_parsing(const char **format, t_mark *mk);
 t_mark		init(void);
+void	modifier(const char **format, t_mark *mk );
 
 // dispatch
 
@@ -39,11 +55,13 @@ size_t	new_format(va_list ap, const char **format);
 size_t 	s_spec(va_list ap, const char *format, t_mark mk);
 size_t 	ss_spec(va_list ap, const char *format, t_mark mk);
 size_t 	d_spec(va_list ap, const char *format, t_mark mk);
+size_t	dd_spec(va_list ap, const char *format, t_mark mk);
 size_t	p_spec(va_list ap, const char *format, t_mark mk);
 size_t 	pourcent_spec(va_list ap, const char *format, t_mark mk);
 
 // display
 size_t	s_display(char *s, t_mark mk);
 size_t	ss_display(wchar_t *s, t_mark mk);
+size_t	d_display(int long long d, t_mark mk);
 
 #endif
