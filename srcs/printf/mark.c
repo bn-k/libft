@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:33:41 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/14 12:10:14 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/19 08:23:30 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ t_mark		init(void)
 	mk.apos = 0;
 	mk.width = 0;
 	mk.precis = -1;
+	mk.l = 0;
+	mk.h = 0;
+	mk.j = 0;
+	mk.z = 0;
+	mk.q = 0;
 	return (mk);
 }
 

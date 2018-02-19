@@ -12,28 +12,21 @@ typedef struct s_mark
 	char	plus;
 	char	zero;
 	char 	hash;
-	int	width;
-	int	precis;
-} t_mark;
-
-typedef enum s_num
-{
+	int		width;
+	int		precis;
+	// mod 
 	char h;
-} t_num;
+	char l;
+	char j;
+	char z;
+	char q;
+} t_mark;
 
 typedef struct s_function_type
 {
 	char 	type;
 	size_t	(*t_function_type)(va_list, const char*, t_mark);
 } t_function_type;
-
-typedef struct s_mod
-{
-	char 	mod;
-	char 	mod2;
-	char	*name;
-} t_mod;
-
 
 //test
 void	test_1(void);

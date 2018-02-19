@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/15 16:44:25 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/19 11:10:36 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,53 @@
 
 static size_t		put_padding(int long long d, t_mark mk)
 {
-	int i;
 	int len;
+	int	print;
 
-	i = 0;
-	len = ft_nbrlen((d < 0 ? -d : d));
-
-	if (d < 0 && mk.zero)
-		len += ft_putchar('-');
-	while (i < (mk.width + mk.precis) - len)
-	{
-		ft_putchar(((mk.zero || mk.precis) ? '0' : ' '));
-		i++;
-	}
-	if (d < 0 && !mk.zero)
-		len += ft_putchar('-');
+	print= 0;
+	len = ft_nbrlen(d < 0 ? -d : d);
+	while ((print + len < mk.width - (d <0)) || (print + len < mk.precis + (d < 0)))
+		print += ft_putchar(' ');
+	if (d < 0)
+		print += ft_putchar('-');
 	if (d >= 0 && mk.plus)
-		len += ft_putchar('+');
+		print += ft_putchar('+');
 	ft_putnbr_ill((d < 0 ? -d : d));
-	return ((size_t)i + len);
+	return ((size_t)print + len);
+}
+
+
+static size_t		put_zero(int long long d, t_mark mk)
+{
+	int len;
+	int	print;
+
+	print= 0;
+	len = ft_nbrlen(d < 0 ? -d : d);
+	while (!mk.zero && ((print < mk.width - ((len > mk.precis ? len : mk.precis) + ((d < 0) || mk.plus)))))
+				print += ft_putchar(' ');
+	if (d < 0)
+		print += ft_putchar('-');
+	if (d >= 0 && mk.plus)
+		print += ft_putchar('+');
+	while ((print + len < mk.width) || (print + len < mk.precis + (d < 0)))
+		print += ft_putchar('0');
+	ft_putnbr_ill((d < 0 ? -d : d));
+	return ((size_t)print + len);
 }
 
 static size_t		put_spaces(int long long d, t_mark mk)
 {
-	int i;
 	int len;
+	int	print;
 
-	(void)mk;
-	i = 0;
+	print= 0;
 	len = ft_nbrlen(d);
 	ft_putnbr_ill(d);
-	while (i < mk.width - len - mk.plus)
-	{
-		len += ft_putchar(' ');
-		i++;
-	}
-	return ((size_t)len);
+	while ((print + len < mk.width))
+		print += ft_putchar(' ');
+	return ((size_t)print + len);
 }
-
 
 size_t	d_display(int long long d, t_mark mk)
 {
@@ -60,7 +69,12 @@ size_t	d_display(int long long d, t_mark mk)
 	if ((mk.space) && d >= 0)
 		len += ft_putchar(' ');
 	if (!mk.minus)
-		len += put_padding(d, mk);
+	{
+		if ((-1 < mk.precis) || mk.zero)
+			len += put_zero(d, mk);
+		else 
+			len += put_padding(d, mk);
+	}
 	else
 		len = put_spaces(d, mk);
 	return (len);

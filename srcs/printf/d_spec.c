@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/15 17:54:45 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/19 10:42:48 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 size_t	d_spec(va_list ap, const char *format, t_mark mk)
 {
-	int d;
 	(void)format;
-	(void)mk;
 	
-	printf("test-> %d- \n", mk.l);
-	d = va_arg(ap, int);
-	return (d_display((int long long)d, mk));
+	if (mk.h == 2)
+		return (d_display((long long)va_arg(ap, int), mk));
+	if (mk.l == 1)
+		return (d_display((long long)va_arg(ap, long) , mk));
+	if (mk.l == 2)
+		return (d_display((long long)va_arg(ap, long long) , mk));
+	return (d_display((long long)va_arg(ap, int) , mk));
 }
