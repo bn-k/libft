@@ -2,6 +2,8 @@
 # define FT_PRINT_F
 # include "libft.h"
 # include <stdarg.h>
+# define POS(i) (i < 0 ? 0 : i)
+# define SIGN (((mk.plus || mk.space) && (d >= 0)) || (d < 0))
 
 // typedef
 typedef struct s_mark
@@ -14,6 +16,8 @@ typedef struct s_mark
 	char 	hash;
 	int		width;
 	int		precis;
+	int		len;
+	char	point;
 	// mod 
 	char h;
 	char l;

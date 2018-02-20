@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:33:41 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/19 08:23:30 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/20 17:07:01 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ t_mark		init(void)
 	mk.plus = 0;
 	mk.apos = 0;
 	mk.width = 0;
-	mk.precis = -1;
+	mk.precis = 0;
+	mk.point = 0;
+	mk.len = 0;
 	mk.l = 0;
 	mk.h = 0;
 	mk.j = 0;
@@ -46,11 +48,16 @@ void	precision(const char **format, t_mark *mk)
 {
 	if (**format == '.')
 	{
+		mk->point = 1;
 		(*format)++;
-		mk->precis = ft_atoi(*format);
-		while (ft_isdigit(**format))
-			(*format)++;
-
+		if (ft_isdigit(**format))
+		{
+			mk->precis = ft_atoi(*format);
+			while (ft_isdigit(**format))
+				(*format)++;
+		}
+		else
+			mk->precis = 0;
 	}
 }
 

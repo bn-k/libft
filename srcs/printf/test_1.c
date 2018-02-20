@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/19 11:07:55 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/20 17:10:20 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,12 @@ void	test(void)
 	int ft;
 	int i;
 	printf("___________ 0 ______________\n");
-	//i = ft_printf("Test de %d: -%' #d-\n",55, 23);
-	//ft_putnbrl(i);
-	ft = ft_printf("TEST : %ld\n", 0x44ff551100);
-	i = printf("TEST : %ld\n", 0x44ff551100);
+	ft = ft_printf("|toto%0.d et %+.i et  %   .0D !!!\n", 0, 0, 0);
+	i = printf("|toto%0.d et %+.i et  %   .0D !!!\n", 0, 0, 0);
 	printf("%d - %d\n", ft, i);
 
-	ft = ft_printf("%5d<\n",-42) ;
-	i = printf("%5d<\n", -42);
-	printf("%d - %d\n", ft, i);
-
-	ft = ft_printf("%+12.5d<\n", 140) ;
-	i = printf("%+12.5d<\n", 140) ;
+	ft = ft_printf("|%9d-\n", -666);
+	i = printf("|%9d-\n", -666);
 	printf("%d - %d\n", ft, i);
 }
 
@@ -44,12 +38,6 @@ void	test_1(void)
 void	test_2(void)
 {
 	printf("___________ 2 ______________\n");
-	void *s = malloc(2);
-	int i = 0;
-	i = printf("%p\n", s);
-	ft_putnbrl(i);
-	i = ft_printf("%\n", 0);
-	ft_putnbrl(i);
 }
 
 void	test_3(char *s, char *s2)
