@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 21:39:31 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 22:39:43 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	test(void)
 
 	//printf("f : %llo len : %zu\n",f, ft_nbrlen_base(f, base));
 
-	ft = ft_printf("%-42hhO<\n", LONG_MAX);
-	i = printf("%-42hhO<\n", LONG_MAX);
+	ft = ft_printf("%#09.0X-\n", 482);
+	i = printf("%#09.0X-\n", 482);
 	printf("%d - %d\n", ft, i);
 
-	ft = ft_printf("%+42O\n", -15);
-	i = printf("%+42O\n", -15);
+	ft = ft_printf("%#04x\n", 0);
+	i = printf("%#04x\n", 0);
 	printf("%d - %d\n", ft, i);
 }
 

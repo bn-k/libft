@@ -69,7 +69,7 @@ size_t	s_display(char *s, t_mark mk);
 size_t	ss_display(wchar_t *s, t_mark mk);
 size_t	d_display(int long long i, t_mark mk);
 size_t	o_display(unsigned long long d, t_mark mk);
-size_t	x_display(int long long i, t_mark mk);
+size_t	x_display(unsigned long long d, t_mark mk, char *base);
 size_t	u_display(unsigned int long long d, t_mark mk);
 int	rel_sous(int i, int d);
 
