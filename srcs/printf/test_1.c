@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 15:02:52 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 16:31:19 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	test(void)
 	int ft;
 	int i;
 	printf("___________ 0 ______________\n");
-	ft = ft_printf("|>%1.4s< et >%-6.8s< et >%4.2s<\n", "tuuu", "12345", "hu");
-	i = printf("|>%1.4s< et >%-6.8s< et >%4.2s<\n", "tuuu", "12345", "hu");
+	ft = ft_printf("%-50S-\n", L"®");
+	i = printf("%-50S-\n", L"®");
 	printf("%d - %d\n", ft, i);
 
-	ft = ft_printf("|%-10s<-\n", NULL);
-	i = printf("|%-10s<-\n", NULL);
+	i = printf("%hd-\n", (short)(SHRT_MAX + 5));
+	ft = ft_printf("%hd-\n", (SHRT_MAX + 5));
 	printf("%d - %d\n", ft, i);
 }
 

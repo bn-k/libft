@@ -2,6 +2,8 @@
 # define FT_PRINT_F
 # include "libft.h"
 # include <stdarg.h>
+# include <limits.h>
+# include <stdint.h>
 # define POS(i) (i < 0 ? 0 : i)
 # define SIGN (((mk.plus || mk.space) && (d >= 0)) || (d < 0))
 

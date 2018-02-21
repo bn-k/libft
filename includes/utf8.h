@@ -10,6 +10,7 @@
 
 size_t 	ft_putchar_utf8(wchar_t wc);
 size_t	ft_putstr_utf8(wchar_t *ws);
+size_t	ft_strlen_utf8(wchar_t *ws);
 
 
 #endif
