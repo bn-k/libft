@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:18 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 16:28:01 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:53:08 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ size_t	ss_spec(va_list ap, const char *format, t_mark mk)
 
 	if (!(s = va_arg(ap, wchar_t *)))
 		s = null;
-	len = ss_display(s, mk);
-	return (len);
+	return (ss_display(s, mk));
 }

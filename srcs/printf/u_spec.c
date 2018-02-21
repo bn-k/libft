@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/20 16:59:25 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:36:03 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,18 @@
 size_t	u_spec(va_list ap, const char *format, t_mark mk)
 {
 	(void)format;
+	if (mk.h == 1)
+		return (u_display((unsigned short)va_arg(ap,unsigned int), mk));
+	if (mk.h == 2)
+		return (u_display((unsigned char)va_arg(ap,unsigned int), mk));
+	if (mk.l == 1)
+		return (u_display((unsigned long long)va_arg(ap,long), mk));
 	if (mk.l == 2)
-		return (u_display((unsigned long long)va_arg(ap,unsigned long long), mk));
-	return (u_display((unsigned long long)va_arg(ap,unsigned long long), mk));
+		return (u_display((unsigned long long)va_arg(ap,long long), mk));
+	if (mk.j == 1)
+		return (u_display((uintmax_t)va_arg(ap, uintmax_t), mk));
+	if (mk.z == 1)
+		return (u_display((uintmax_t)va_arg(ap,unsigned long long), mk));
+	else
+	return (u_display((unsigned int)va_arg(ap, unsigned int), mk));
 }

@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:24:11 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 15:39:50 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 19:48:28 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <limits.h>
 # include "utf8.h"
 # include "ft_printf.h"
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-# define LLONG_MAX 9223372036854775807
-# define LLONG_MIN -9223372036854775807
 
 typedef struct	s_list
 {
@@ -41,6 +38,8 @@ void	ft_putnbr_ill(int long long nb);
 void	ft_putnbr_iull(int unsigned long long n);
 void	ft_putnbr(int n);
 void	ft_putnuminfo(int nb, char *spec);
+size_t	ft_putnbr_base(unsigned long long nbr, char *base);
+
 
 // adress
 size_t	ft_print_adress(long unsigned int nbr);

@@ -5,7 +5,9 @@
 # include <limits.h>
 # include <stdint.h>
 # define POS(i) (i < 0 ? 0 : i)
-# define SIGN (((mk.plus || mk.space) && (d >= 0)) || (d < 0))
+# define SIGN (((mk.plus || mk.space) && (d >= 0)) || mk.neg)
+# define PRECIS (mk.zero ? mk.width : mk.precis )
+# define PAD (mk.zero ? 0 : POS(mk.width - (d < 0)))
 
 // typedef
 typedef struct s_mark
@@ -20,6 +22,7 @@ typedef struct s_mark
 	int		precis;
 	int		len;
 	char	point;
+	char	neg;
 	// mod 
 	char h;
 	char l;
@@ -54,6 +57,8 @@ size_t	new_format(va_list ap, const char **format);
 size_t 	s_spec(va_list ap, const char *format, t_mark mk);
 size_t 	ss_spec(va_list ap, const char *format, t_mark mk);
 size_t 	d_spec(va_list ap, const char *format, t_mark mk);
+size_t 	o_spec(va_list ap, const char *format, t_mark mk);
+size_t 	x_spec(va_list ap, const char *format, t_mark mk);
 size_t	dd_spec(va_list ap, const char *format, t_mark mk);
 size_t	p_spec(va_list ap, const char *format, t_mark mk);
 size_t 	u_spec(va_list ap, const char *format, t_mark mk);
@@ -62,7 +67,9 @@ size_t 	pourcent_spec(va_list ap, const char *format, t_mark mk);
 // display
 size_t	s_display(char *s, t_mark mk);
 size_t	ss_display(wchar_t *s, t_mark mk);
-size_t	d_display(int long long d, t_mark mk);
+size_t	d_display(int long long i, t_mark mk);
+size_t	o_display(int long long i, t_mark mk);
+size_t	x_display(int long long i, t_mark mk);
 size_t	u_display(unsigned int long long d, t_mark mk);
 int	rel_sous(int i, int d);
 

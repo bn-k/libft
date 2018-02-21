@@ -6,20 +6,17 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 16:32:53 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 19:05:52 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static size_t		put_spaces(t_mark mk)
+static size_t		put_spaces(t_mark mk, int len)
 {
-	int i;
-
-	i = 0;
-	while (i < (mk.width -  (mk.point ?    ( mk.precis > mk.len ? mk.len : mk.precis ): mk.len   )    ) - mk.len)
-		i += ft_putchar(' ');
-	return ((size_t)i);
+	while (len < mk.width)
+		len += ft_putchar(' ');
+	return ((size_t)len);
 }
 
 static size_t		put_padding(int len)
@@ -44,11 +41,9 @@ static size_t		put_precision(wchar_t *s, t_mark mk)
 	ret = 0;
 	if (!mk.point)
 		return (ft_putstr_utf8(s));
-	while (*s && mk.precis)
+	while (*s && ret < mk.precis)
 	{
-		ft_putchar_utf8(*s);
-		mk.precis--;
-		ret++;
+		ret += ft_putchar_utf8(*s);
 		s++;
 	}
 	return (ret);
@@ -68,6 +63,6 @@ size_t	ss_display(wchar_t *s, t_mark mk)
 		len += put_padding(pad);
 	len += put_precision(s, mk);
 	if (mk.minus)
-		len += put_spaces(mk);
+		len = put_spaces(mk, len);
 	return (len);
 }

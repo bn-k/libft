@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:33:41 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/20 17:07:01 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:38:57 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_mark		init(void)
 	mk.j = 0;
 	mk.z = 0;
 	mk.q = 0;
+	mk.neg = 0;
 	return (mk);
 }
 
@@ -68,4 +69,5 @@ void	format_parsing(const char **format, t_mark *mk)
 	field_width(format, mk);
 	precision(format, mk);
 	modifier(format, mk);
+	mk->space = mk->plus ? 0 : mk->space;
 }

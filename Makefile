@@ -10,7 +10,7 @@ NAME = libftprintf.a
 
 # compilation
 CC = clang
-FLAGS = -Wall -Wextra -Werror
+FLAGS =
 
 # dir
 D_SRC = srcs
@@ -51,6 +51,7 @@ SRC =\
 	 strings/ft_strncpy.c \
 	 strings/ft_strcmp.c \
 	 numbers/ft_putnbr.c \
+	 numbers/ft_putnbr_base.c \
 	 numbers/ft_putnbr_ill.c \
 	 numbers/ft_putnuminfo.c \
 	 numbers/ft_putnbr_fd.c \
@@ -97,11 +98,15 @@ SRC =\
 	 printf/p_spec.c \
 	 printf/ss_spec.c \
 	 printf/d_spec.c \
+	 printf/o_spec.c \
+	 printf/x_spec.c \
 	 printf/dd_spec.c \
 	 printf/u_spec.c \
 	 printf/pourcent_spec.c \
 	 printf/s_display.c \
 	 printf/d_display.c \
+	 printf/x_display.c \
+	 printf/o_display.c \
 	 printf/u_display.c \
 	 printf/ss_display.c \
 
