@@ -98,9 +98,11 @@ SRC =\
 	 printf/ss_spec.c \
 	 printf/d_spec.c \
 	 printf/dd_spec.c \
+	 printf/u_spec.c \
 	 printf/pourcent_spec.c \
 	 printf/s_display.c \
 	 printf/d_display.c \
+	 printf/u_display.c \
 	 printf/ss_display.c \
 
 

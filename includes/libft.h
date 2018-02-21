@@ -31,12 +31,14 @@ typedef struct	s_list
 
 // numbers
 size_t	ft_nbrlen(int long long nb);
+size_t	ft_nbrlen_iull(unsigned long long nb);
 
 
 // print numbers
 void	ft_putnbrl(int n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putnbr_ill(int long long nb);
+void	ft_putnbr_iull(int unsigned long long n);
 void	ft_putnbr(int n);
 void	ft_putnuminfo(int nb, char *spec);
 

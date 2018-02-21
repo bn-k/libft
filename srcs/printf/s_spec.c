@@ -19,8 +19,8 @@ size_t	s_spec(va_list ap, const char *format, t_mark mk)
 	char *s;
 	(void)format;
 	
-	if (!(s = va_arg(ap, char *)))
-		return (0);
+	s = va_arg(ap, char *);
+	s = (s ? s : ft_strdup("(null)"));
 	len = s_display(s, mk);
 	return (len);
 }

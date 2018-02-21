@@ -19,7 +19,9 @@ const t_function_type func_tab[] = {
 	{'d', d_spec},
 	{'i', d_spec},
 	{'D', dd_spec},
-	{'p', p_spec}
+	{'p', p_spec},
+	{'u', u_spec},
+	{'U', u_spec}
 };
 
 size_t	new_format(va_list ap, const char **format)
@@ -32,7 +34,7 @@ size_t	new_format(va_list ap, const char **format)
 	count = 0;
 	(*format)++;
 	format_parsing(format, &mk);
-	while (i < 7)
+	while (i < 9)
 	{
 		if (*format[0] == func_tab[i].type)
 			count = func_tab[i].t_function_type(ap, *format, mk);

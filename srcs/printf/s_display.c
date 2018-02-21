@@ -12,6 +12,21 @@
 
 #include "ft_printf.h"
 
+static size_t		put_spaces(int len)
+{
+	int i;
+
+	i = 0;
+	if (len <= 0)
+		return (0);
+	while (i < len)
+	{
+		ft_putchar(' ');
+		i++;
+	}
+	return ((size_t)len);
+}
+
 static size_t		put_padding(int len)
 {
 	int i;
@@ -27,18 +42,17 @@ static size_t		put_padding(int len)
 	return ((size_t)len);
 }
 
-static size_t		put_precision(char *s, int len)
+static size_t		put_precision(char *s, t_mark mk)
 {
 	size_t ret;
 
-	if (len == -1)
+	ret = 0;
+	if (!mk.point)
 		return (ft_putstr(s));
-	else
-		ret = 0;
-	while (*s && len)
+	while (*s && mk.precis)
 	{
-		ft_putchar_utf8(*s);
-		len--;
+		ft_putchar(*s);
+		mk.precis--;
 		ret++;
 		s++;
 	}
@@ -48,10 +62,16 @@ static size_t		put_precision(char *s, int len)
 size_t	s_display(char *s, t_mark mk)
 {
 	size_t len;
+	int strlen;
+	int pad;
+
+	strlen = ft_strlen(s);
 
 	len = 0;
-	if (mk.width)
-		len = put_padding(mk.width - ft_strlen(s));
-	len += put_precision(s, mk.precis);
+	if (!mk.minus)
+		len += put_padding(pad);
+	len += put_precision(s, mk);
+	if (mk.minus)
+		len += put_spaces(mk.width);
 	return (len);
 }

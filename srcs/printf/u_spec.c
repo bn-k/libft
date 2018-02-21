@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
+/*   d_spec.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/15 17:07:47 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/15 17:59:04 by abbenham         ###   ########.fr       */
+/*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
+/*   Updated: 2018/02/20 16:59:25 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-size_t	ft_nbrlen(int long long nb)
-{
-	if (nb < 10 && nb >= 0)
-		return (1);
-	if (nb < 0)
-		return (1 + ft_nbrlen(nb * -1));
-	if (nb > 9)
-		return (1 + ft_nbrlen(nb / 10));
-	return (0);
-}
+#include "ft_printf.h"
 
-size_t	ft_nbrlen_iull(unsigned long long nb)
+size_t	u_spec(va_list ap, const char *format, t_mark mk)
 {
-	if (nb < 10)
-		return (1);
-	if (nb > 9)
-		return (1 + ft_nbrlen(nb / 10));
-	return (0);
+	(void)format;
+	if (mk.l == 2)
+		return (u_display((unsigned long long)va_arg(ap,unsigned long long), mk));
+	return (u_display((unsigned long long)va_arg(ap,unsigned long long), mk));
 }

@@ -18,21 +18,18 @@ void	test(void)
 	int ft;
 	int i;
 	printf("___________ 0 ______________\n");
-	ft = ft_printf("|toto%0.d et %+.i et  %   .0D !!!\n", 0, 0, 0);
-	i = printf("|toto%0.d et %+.i et  %   .0D !!!\n", 0, 0, 0);
+	ft = ft_printf("|%-1.s- %---5.3s\n" , NULL, "yooo");
+	i = printf("|%-1.s- %---5.3s\n" , NULL, "yooo");
 	printf("%d - %d\n", ft, i);
 
-	ft = ft_printf("|%9d-\n", -666);
-	i = printf("|%9d-\n", -666);
+	ft = ft_printf("|%10s-\n", NULL);
+	i = printf("|%10s-\n", NULL);
 	printf("%d - %d\n", ft, i);
 }
 
 void	test_1(void)
 {
 	printf("___________ 1 ______________\n");
-	printf("%S", L"米");
-	ft_printf("%S", L"米");
-	printf("\n");
 }
 
 void	test_2(void)

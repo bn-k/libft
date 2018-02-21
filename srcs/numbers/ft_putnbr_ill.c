@@ -34,12 +34,12 @@ void	ft_putnbr_ill(int long long nb)
 }
 
 
-void	ft_putnbr_iul(int unsigned long n)
+void	ft_putnbr_iull(int unsigned long long n)
 {
 		if (n > 9)
 		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
+			ft_putnbr_iull(n / 10);
+			ft_putnbr_iull(n % 10);
 		}
 		else
 			ft_putchar(n + 48);
