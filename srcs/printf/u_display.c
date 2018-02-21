@@ -6,14 +6,11 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 18:45:04 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:25:57 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-# define PRECIS (mk.zero ? mk.width : mk.precis )
-# define PAD (mk.zero ? 0 : POS(mk.width - (d < 0)))
-# define SIGN (((mk.plus || mk.space) && (d >= 0)) || (d < 0))
 
 static size_t		put_padding(unsigned long long d, t_mark mk)
 {

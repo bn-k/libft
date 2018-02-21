@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 20:20:09 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 21:39:31 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,18 @@ void	test(void)
 	int ft;
 	int i;
 	printf("___________ 0 ______________\n");
-	ft = ft_printf("%hho\n", -1);
-	i = printf("%hho\n", -1);
+
+	unsigned long long f = 555;
+	unsigned long long base = 8;
+
+	//printf("f : %llo len : %zu\n",f, ft_nbrlen_base(f, base));
+
+	ft = ft_printf("%-42hhO<\n", LONG_MAX);
+	i = printf("%-42hhO<\n", LONG_MAX);
 	printf("%d - %d\n", ft, i);
 
-	i = printf("%hd-\n", (short)(SHRT_MAX + 5));
-	ft = ft_printf("%hd-\n", (SHRT_MAX + 5));
+	ft = ft_printf("%+42O\n", -15);
+	i = printf("%+42O\n", -15);
 	printf("%d - %d\n", ft, i);
 }
 
