@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:24:11 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 19:48:28 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:19:00 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_list
 // numbers
 size_t	ft_nbrlen(int long long nb);
 size_t	ft_nbrlen_iull(unsigned long long nb);
+size_t	ft_nbrlen_base(unsigned long long nb,unsigned int lenbase);
 
 
 // print numbers

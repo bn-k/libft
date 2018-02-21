@@ -144,7 +144,6 @@ build:
 	mkdir -p $(D_OBJ)
 	mkdir -p $(OBJS_DIRS)
 
-re: clean all
 
 clean:
 	rm -f $(LIBS)
@@ -153,7 +152,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	re: fclean all
+
+re: clean all
 
 $(D_OBJ)/%.o: $(D_SRC)/%.c
 	echo "$(LOG_NOCOLOR)Create obj $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"

@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 19:55:10 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:18:11 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ static size_t		put_padding(unsigned long long d, t_mark mk)
 	print = 0;
 	while ((!mk.zero || (mk.zero && mk.point))  && (print < rel_sous(mk.width, rel_sous(mk.precis, mk.len) + mk.len) - (mk.neg || mk.plus || mk.space)))
 		print += ft_putchar(' ');
-	if (mk.neg)
-		ft_putchar('-');
-	else if (mk.plus)
+	if (mk.plus)
 		ft_putchar('+');
 	while (mk.precis  && (i < mk.precis - mk.len))
 		i += ft_putchar('0');
@@ -49,18 +47,10 @@ static size_t		put_spaces(unsigned long long d, t_mark mk)
 	return ((size_t)print);
 }
 
-size_t	o_display(int long long i, t_mark mk)
+size_t	o_display(unsigned long long d, t_mark mk)
 {
-	unsigned long long d;
-	if (i < 0)
-	{
-		d = -i;
-		mk.neg = 1;
-	}
-	else 
-		d = i;
 	mk.zero = (mk.precis ? 0 : mk.zero);
-	mk.len = ft_nbrlen_iull(d);
+	mk.len = ft_nbrlen_base(d, 2);
 	if (mk.space && mk.neg)
 		ft_putchar(' ');
 	if (!mk.minus)
