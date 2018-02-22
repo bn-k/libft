@@ -3,16 +3,15 @@
 size_t	ft_strlen_utf8(wchar_t *s)
 {
 	size_t size;
-	size_t tmp;
 
 	size = 0;
 	while (*s)
 	{
-		tmp = 
+		size += ft_charlen_utf8(*s);
+		s++;
 	}
+	return (size);
 }
-
-
 
 size_t	ft_charlen_utf8(wchar_t wc)
 {

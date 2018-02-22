@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 19:23:19 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:20:52 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ size_t	d_display(int long long i, t_mark mk)
 		d = i;
 	mk.zero = (mk.precis ? 0 : mk.zero);
 	mk.len = ft_nbrlen_iull(d);
-	if (mk.space && mk.neg)
+	if (mk.space && !mk.neg)
 		ft_putchar(' ');
 	if (!mk.minus)
 		mk.len += put_padding(d, mk);

@@ -17,7 +17,7 @@ static size_t	three_byte_utf8(wchar_t wc)
 
 static size_t	four_byte_utf8(wchar_t wc)
 {
-	ft_putchar((wc >> 18) | M_1110XXXX);
+	ft_putchar((wc >> 18) | M_11110XXX);
 	ft_putchar(((wc >> 12) & SIX_BYTE) | M_10XXXXXX);
 	ft_putchar(((wc >> 6) & SIX_BYTE) | M_10XXXXXX);
 	ft_putchar((wc & SIX_BYTE) + M_10XXXXXX);

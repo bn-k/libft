@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 22:39:43 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:52:54 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,27 @@ void	test(void)
 	int i;
 	printf("___________ 0 ______________\n");
 
-	unsigned long long f = 555;
-	unsigned long long base = 8;
-
 	//printf("f : %llo len : %zu\n",f, ft_nbrlen_base(f, base));
 
-	ft = ft_printf("%#09.0X-\n", 482);
-	i = printf("%#09.0X-\n", 482);
+	ft = ft_printf("%#0.3o\n", 0);
+	i = printf("%#0.3o\n", 0);
+	//ft = ft_putchar_utf8(0x10394);
 	printf("%d - %d\n", ft, i);
 
-	ft = ft_printf("%#04x\n", 0);
-	i = printf("%#04x\n", 0);
+	ft = ft_printf("%0#4lo\n", 1);
+	i = printf("%0#4lo\n", 1);
+	//ft = ft_putchar_utf8(0x10394);
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("%#o\n", 0);
+	i = printf("%#o\n", 0);
+	//ft = ft_putchar_utf8(0x10394);
+	printf("%d - %d\n", ft, i);
+
+
+	ft = ft_printf("coco et %-#-#--24O titi%#012o\n", 12, -874);
+	i = printf("coco et %-#-#--24O titi%#012o\n", 12, -874);
+	//ft = ft_putchar_utf8(0x10394);
 	printf("%d - %d\n", ft, i);
 }
 
