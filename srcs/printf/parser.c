@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:24:33 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 10:07:52 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/23 14:05:20 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ const t_function_type func_tab[] = {
 	{'o', o_spec},
 	{'x', x_spec},
 	{'O', o_spec},
-	{'X', x_spec}
+	{'X', x_spec},
+	{'0', no_spec},
 };
 
 size_t	new_format(va_list ap, const char **format)
@@ -43,8 +44,15 @@ size_t	new_format(va_list ap, const char **format)
 	while (i < 15)
 	{
 		if (*format[0] == func_tab[i].type)
-			count = func_tab[i].t_function_type(ap, *format, mk);
+		{
+			if (-1 == (int)(count = func_tab[i].t_function_type(ap, *format, mk)))
+				return (-1);
+			else
+				return (count);
+		}
 		i++;
 	}
-	return (count);
+	mk.h = **format;
+	return (func_tab[15].t_function_type(ap, *format, mk));
+	return (0);
 }

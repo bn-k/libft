@@ -6,7 +6,7 @@
 /*   By: abbenham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 17:58:47 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 19:50:26 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:21:13 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ size_t				ft_putnbr_base(unsigned long long nb, char *base)
 	int				len_base;
 	size_t	len;
 
+	len = 0;
 	len_base = ft_len_base(base);
 	i = 0;
 	if (nb == 0 && len_base != 0)

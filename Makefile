@@ -10,7 +10,7 @@ NAME = libftprintf.a
 
 # compilation
 CC = clang
-FLAGS =
+FLAGS = # -Wall -Werror -Wextra
 
 # dir
 D_SRC = srcs
@@ -101,6 +101,7 @@ SRC =\
 	 printf/ss_spec.c \
 	 printf/d_spec.c \
 	 printf/o_spec.c \
+	 printf/no_spec.c \
 	 printf/x_spec.c \
 	 printf/dd_spec.c \
 	 printf/u_spec.c \
@@ -112,6 +113,7 @@ SRC =\
 	 printf/o_display.c \
 	 printf/u_display.c \
 	 printf/ss_display.c \
+	 printf/no_display.c \
 
 
 # SPECIAL CHARS

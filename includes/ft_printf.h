@@ -63,6 +63,7 @@ size_t 	c_spec(va_list ap, const char *format, t_mark mk);
 size_t	dd_spec(va_list ap, const char *format, t_mark mk);
 size_t	p_spec(va_list ap, const char *format, t_mark mk);
 size_t 	u_spec(va_list ap, const char *format, t_mark mk);
+size_t 	no_spec(va_list ap, const char *format, t_mark mk);
 size_t 	pourcent_spec(va_list ap, const char *format, t_mark mk);
 
 // display
@@ -74,6 +75,7 @@ size_t	d_display(int long long i, t_mark mk);
 size_t	o_display(unsigned long long d, t_mark mk);
 size_t	x_display(unsigned long long d, t_mark mk, char *base);
 size_t	u_display(unsigned int long long d, t_mark mk);
+size_t	no_display(t_mark mk);
 int	rel_sous(int i, int d);
 
 

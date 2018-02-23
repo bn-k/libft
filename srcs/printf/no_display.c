@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_spec.c                                           :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/14 08:21:18 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 18:22:25 by abbenham         ###   ########.fr       */
+/*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
+/*   Updated: 2018/02/23 11:42:25 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft_printf.h"
 
-size_t	s_spec(va_list ap, const char *format, t_mark mk)
+size_t	no_display(t_mark mk)
 {
-	char *s;
-	(void)format;
-	char null[7] = "(null)\0";
+	int len;
 
-	if (mk.l == 1)
-		return (ss_spec(ap, format, mk));
-	s = va_arg(ap, char *);
-	s = (s ? s : null);
-	return (s_display(s, mk));
+	len = 0;
+	if (!mk.minus)
+	{
+		while (mk.width > 1)
+		{
+			len += ft_putchar(' ');
+			mk.width--;
+		}
+		len++;
+		ft_putchar(mk.h);
+		return ((size_t)len);
+	}
+	else if (mk.minus)
+	{
+		len++;
+		ft_putchar(mk.h);
+		while (mk.width > 1)
+		{
+			len += ft_putchar(' ');
+			mk.width--;
+		}
+		return ((size_t)len);
+	}
+	return (0);
 }

@@ -6,46 +6,80 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 15:52:54 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/23 15:50:39 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 #include <stdio.h>
-
-void	test(void)
-{
-	int ft;
-	int i;
-	printf("___________ 0 ______________\n");
-
-	//printf("f : %llo len : %zu\n",f, ft_nbrlen_base(f, base));
-
-	ft = ft_printf("%#0.3o\n", 0);
-	i = printf("%#0.3o\n", 0);
-	//ft = ft_putchar_utf8(0x10394);
-	printf("%d - %d\n", ft, i);
-
-	ft = ft_printf("%0#4lo\n", 1);
-	i = printf("%0#4lo\n", 1);
-	//ft = ft_putchar_utf8(0x10394);
-	printf("%d - %d\n", ft, i);
-
-	ft = ft_printf("%#o\n", 0);
-	i = printf("%#o\n", 0);
-	//ft = ft_putchar_utf8(0x10394);
-	printf("%d - %d\n", ft, i);
-
-
-	ft = ft_printf("coco et %-#-#--24O titi%#012o\n", 12, -874);
-	i = printf("coco et %-#-#--24O titi%#012o\n", 12, -874);
-	//ft = ft_putchar_utf8(0x10394);
-	printf("%d - %d\n", ft, i);
-}
 
 void	test_1(void)
 {
+	int ft;
+	int i;
 	printf("___________ 1 ______________\n");
+
+	//ft = ft_printf("%C\n", (wint_t)-2);
+	//i= printf("hello %C\n", (wint_t)-2);
+	//printf("(%d)  (%d)\n", ft, i);
+	ft = ft_printf("%###.0o%#.O et %#.1o !\n",0, 0, 0);
+	i = printf("%###.0o%#.O et %#.1o !\n",0, 0, 0);
+	printf("%d  %d\n", ft, i);
+
+	ft = ft_printf("%.5S\n", L"Risitas¬");
+	i = printf("%.5S\n", L"Risitas¬");
+	printf("%d  %d\n", ft, i);
+
+	ft = ft_printf("%.5S\n", L"†œø˙Unicode string");
+	i = printf("%.5S\n", L"†œø˙Unicode string");
+	printf("%d  %d\n", ft, i);
+
+	ft = ft_printf("%.4S\n", L"我是一只猫。");
+	i = printf("%.4S\n", L"我是一只猫。");
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("%15.5S\n", L"我是一只猫。");
+	i = printf("%15.5S\n", L"我是一只猫。");
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("%.S\n", L"我是一只猫。");
+	i = printf("%.S\n", L"我是一只猫。");
+	printf("%d - %d\n", ft, i);
+
+	/*
+	ft = ft_printf("%U\n", ULONG_MAX);
+	i = printf("%U\n", ULONG_MAX);
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("%U\n", ULONG_MAX / 2);
+	i = printf("%U\n", ULONG_MAX / 2);
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("{%5p}\n", 0);
+	i = printf("{%5p}\n", 0);
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("{%05p}\n", 0);
+	i = printf("{%05p}\n", 0);
+	printf("%d - %d\n", ft, i);
+
+
+	ft = ft_printf("{%}\n");
+	i = printf("{%}\n");
+	printf("%d - %d\n", ft, i);
+
+	ft = ft_printf("% Zoo\n");
+	i = printf("% Zoo\n");
+	printf("%d - %d\n", ft, i);
+	*/
+
+}
+
+void	test(void)
+{
+	printf("___________ 0 ______________\n");
+	printf("%lld\n", MB_CUR_MAX);
 }
 
 void	test_2(void)

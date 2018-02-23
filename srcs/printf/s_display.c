@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 15:09:40 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/23 14:35:41 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t		put_spaces(t_mark mk)
 	return ((size_t)i);
 }
 
-static size_t		put_padding(int len)
+static size_t		put_padding(int len, t_mark mk)
 {
 	int i;
 
@@ -31,7 +31,7 @@ static size_t		put_padding(int len)
 		return (0);
 	while (i < len)
 	{
-		ft_putchar(' ');
+		ft_putchar(mk.zero ? '0' : ' ');
 		i++;
 	}
 	return ((size_t)len);
@@ -61,11 +61,11 @@ size_t	s_display(char *s, t_mark mk)
 
 	mk.len = ft_strlen(s);
 	//printf("precis: %d \n", mk.precis);
-	pad = (mk.width - ( mk.point ? mk.precis : mk.len));
+	pad = mk.len > mk.precis ? (mk.width - ( mk.point ? mk.precis : mk.len)) : (mk.width - mk.len);
 
 	len = 0;
 	if (!mk.minus)
-		len += put_padding(pad);
+		len += put_padding(pad, mk);
 	len += put_precision(s, mk);
 	if (mk.minus)
 		len += put_spaces(mk);

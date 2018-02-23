@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 14:20:52 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:10:49 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t		put_padding(unsigned long long d, t_mark mk)
 		ft_putchar('-');
 	else if (mk.plus)
 		ft_putchar('+');
-	while (mk.precis  && (i < mk.precis - mk.len))
+	while (mk.point  && (i < mk.precis - mk.len))
 		i += ft_putchar('0');
 	while (mk.width && mk.zero && !mk.point && (print < mk.width - mk.len - (mk.neg || mk.space || mk.plus)))
 		print += ft_putchar('0');
@@ -70,7 +70,7 @@ size_t	d_display(int long long i, t_mark mk)
 	mk.len = ft_nbrlen_iull(d);
 	if (mk.space && !mk.neg)
 		ft_putchar(' ');
-	if (!mk.minus)
+	if (!mk.minus || mk.point )
 		mk.len += put_padding(d, mk);
 	else
 		mk.len += put_spaces(d, mk);

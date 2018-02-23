@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 11:43:42 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 23:10:29 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static size_t		put_padding(unsigned long long d, t_mark mk, char *base)
 	while ((!mk.zero || (mk.zero && mk.point))  && (print < rel_sous(mk.width, rel_sous(mk.precis, mk.len) + mk.len) -  mk.space - 2))
 		print += ft_putchar(' ');
 	ft_putstr(base[10] == 'A' ? "0X" : "0x");
-	while (mk.precis  && (i < mk.precis - mk.len))
+	while (mk.precis  && (i < mk.precis - mk.len ))
 		i += ft_putchar('0');
-	while (mk.width && mk.zero && !mk.point && (print < mk.width - mk.len + (d? mk.hash :0)))
+	while (mk.width && mk.zero && !mk.point && (print < mk.width - mk.len - 2))
 		print += ft_putchar('0');
 	if (d == 0 && mk.point && !mk.precis)
 		return ((size_t)i + print - 1);
@@ -56,7 +56,7 @@ size_t	p_display(unsigned long long d, t_mark mk, char *base)
 		mk.len += put_padding(d, mk, base);
 	else
 		mk.len += put_spaces(d, mk, base);
-	return (mk.len +  (d ? mk.hash: 0));
+	return (mk.len + (d ? mk.hash : 0));
 }
 
 

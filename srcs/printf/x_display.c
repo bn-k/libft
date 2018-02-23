@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 22:40:48 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:24:56 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static size_t		put_padding(unsigned long long d, t_mark mk, char *base)
 		ft_putstr(base[10] == 'A' ? "0X" : "0x");
 	while (mk.precis  && (i < mk.precis - mk.len))
 		i += ft_putchar('0');
-	while (mk.width && mk.zero && !mk.point && (print < mk.width - mk.len + (d? mk.hash :0)))
+	while (mk.width && mk.zero && !mk.point && (print < mk.width - (mk.len + (d ? mk.hash :0))))
 		print += ft_putchar('0');
 	if (d == 0 && mk.point && !mk.precis)
 		return ((size_t)i + print - 1);
@@ -37,21 +37,24 @@ static size_t		put_padding(unsigned long long d, t_mark mk, char *base)
 static size_t		put_spaces(unsigned long long d, t_mark mk, char *base)
 {
 	int	print;
+	int	i;
 
 	print = 0;
+	i = 0;
+	while (mk.point  && (i < mk.precis - mk.len))
+		i += ft_putchar('0');
 	ft_putnbr_base(d, base);
-	while ((print < mk.width - mk.len))
+	while ((print < mk.width - mk.len - i))
 		print += ft_putchar(' ');
-	return ((size_t)print);
+	return ((size_t)print + i);
+
 }
 
 size_t	x_display(unsigned long long d, t_mark mk, char *base)
 {
 	mk.zero = (mk.precis ? 0 : mk.zero);
 	mk.len = ft_nbrlen_base(d, 16);
-	if (mk.space && mk.neg)
-		ft_putchar(' ');
-	if (!mk.minus || mk.point)
+	if (!mk.minus)
 		mk.len += put_padding(d, mk, base);
 	else
 		mk.len += put_spaces(d, mk, base);

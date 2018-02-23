@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 20:25:57 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:14:58 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ size_t	u_display(unsigned long long d, t_mark mk)
 {
 	mk.len = ft_nbrlen_iull(d);
 	mk.zero = (mk.precis ? 0 : mk.zero);
-	if (mk.space)
-		ft_putchar(' ');
 	if (!mk.minus)
 		mk.len += put_padding(d, mk);
 	else
 		mk.len += put_spaces(d, mk);
-	return (mk.len + SIGN);
+	return (mk.len);
 }

@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 12:11:34 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:29:02 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ size_t	pourcent_display(t_mark mk)
 		mk.len += put_padding(mk);
 	else
 		mk.len += put_spaces(mk);
-	return (mk.len);
+	return ((mk.len ? mk.len : 1));
 }
 
 

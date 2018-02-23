@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:18 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 18:53:08 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:22:38 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 size_t	ss_spec(va_list ap, const char *format, t_mark mk)
 {
-	size_t len;
 	(void)format;
 	(void)ap;
 	(void)mk;
