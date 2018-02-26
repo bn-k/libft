@@ -13,9 +13,9 @@
 
 #include "ft_printf.h"
 
-size_t	u_spec(va_list ap, const char *format, t_mark mk)
+t_mark	u_spec(va_list ap, const char **format, t_mark mk)
 {
-	if (*format == 'U')
+	if (**format == 'U')
 		return (u_display((unsigned long)va_arg(ap,unsigned long), mk));
 	if (mk.h == 1)
 		return (u_display((unsigned short)va_arg(ap,unsigned int), mk));

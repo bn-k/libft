@@ -94,6 +94,7 @@ SRC =\
 	 printf/parser.c \
 	 printf/modifier.c \
 	 printf/flags.c \
+	 printf/pad.c \
 	 printf/mark.c \
 	 printf/s_spec.c \
 	 printf/c_spec.c \

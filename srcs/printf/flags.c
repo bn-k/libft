@@ -1,4 +1,5 @@
 #include "ft_printf.h"
+
 static int	isflag(int c)
 {
 	int	i;
@@ -18,6 +19,7 @@ void	flags(const char **format, t_mark *mk)
 	i = 0;
 	while ((i = isflag(**format)))
 	{
+		//printf("flags: %s\n", *format);
 		mk->hash= (i == 1 ? 2 : mk->hash);
 		mk->zero= (i == 2 ? 1 : mk->zero);
 		mk->minus = (i == 3 ? 1 : mk->minus);
@@ -26,5 +28,7 @@ void	flags(const char **format, t_mark *mk)
 		mk->apos= (i == 6 ? 1 : mk->apos);
 		(*format)++;
 	}
+		//printf("LA\n");
+
 }
 

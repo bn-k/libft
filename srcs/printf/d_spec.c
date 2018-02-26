@@ -13,10 +13,11 @@
 
 #include "ft_printf.h"
 
-size_t	d_spec(va_list ap, const char *format, t_mark mk)
+t_mark	d_spec(va_list ap, const char **format, t_mark mk)
 {
 	(void)format;
 	
+	(*format)++;
 	if (mk.h == 1)
 		return (d_display((short)va_arg(ap, int), mk));
 	if (mk.z == 1)

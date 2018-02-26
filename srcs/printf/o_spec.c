@@ -13,12 +13,12 @@
 
 #include "ft_printf.h"
 
-size_t	o_spec(va_list ap, const char *format, t_mark mk)
+t_mark	o_spec(va_list ap, const char **format, t_mark mk)
 {
 	(void)format;
 	
 
-	if (*format == 'O')
+	if (**format == 'O')
 		return (o_display((uintmax_t)va_arg(ap,unsigned long) , mk));
 	if (mk.h == 1)
 		return (o_display((unsigned short)va_arg(ap, int), mk));

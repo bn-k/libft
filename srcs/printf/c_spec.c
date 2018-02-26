@@ -13,11 +13,11 @@
 
 #include "ft_printf.h"
 
-size_t	c_spec(va_list ap, const char *format, t_mark mk)
+t_mark	c_spec(va_list ap, const char **format, t_mark mk)
 {
 	(void)format;
 
-	if (mk.l || *format == 'C')
+	if (mk.l || **format == 'C')
 		return (cc_display((wchar_t)va_arg(ap, wint_t), mk));
 	else
 		return (c_display((char)va_arg(ap, int), mk));

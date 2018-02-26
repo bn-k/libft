@@ -1,0 +1,14 @@
+Approche ft_printf v2
+
+La v1 était bonne. L'architecture à permis d'aller loin sans retoucher au code mais en implementant succesivement les fonctions.
+
+- les appeles systèmes à cause des write consécutifs. 
+- les formules de calcules pas du tout géneriques
+- beaucoup de scotch
++ le tableau de pointeurs sur fonctions
++ le parsing
++ la mark
+
+write un par un >> stocker dans un buffer jusqu'à la fin d'un FMT ou le depasssement du BUFF_SIZE.
+		>> retour d'une struct avec le buf. 
+		>> retour > 0 ? (print buf/ return (len)) : return (-1)

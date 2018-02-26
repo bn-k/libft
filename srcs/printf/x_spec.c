@@ -13,14 +13,14 @@
 
 #include "ft_printf.h"
 
-size_t	x_spec(va_list ap, const char *format, t_mark mk)
+t_mark	x_spec(va_list ap, const char **format, t_mark mk)
 {
 	(void)format;
 	
 
-	if (*format == 'X' && mk.h == 2)
+	if (**format == 'X' && mk.h == 2)
 		return (x_display((unsigned char)va_arg(ap, long) , mk, "0123456789ABCDEF"));
-	if (*format == 'X')
+	if (**format == 'X')
 		return (x_display((unsigned long)va_arg(ap, long) , mk, "0123456789ABCDEF"));
 	if (mk.h == 1)
 		return (x_display((unsigned short)va_arg(ap, int), mk, "0123456789abcdef"));

@@ -13,7 +13,7 @@
 
 #include "ft_printf.h"
 
-size_t	no_spec(va_list ap, const char *format, t_mark mk)
+t_mark	no_spec(va_list ap, const char **format, t_mark mk)
 {
 	(void)format;
 	(void)ap;

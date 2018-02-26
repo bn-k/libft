@@ -8,21 +8,27 @@
 # define SIGN (((mk.plus || mk.space) && (d >= 0)) || mk.neg)
 # define PRECIS (mk.zero ? mk.width : mk.precis )
 # define PAD (mk.zero ? 0 : POS(mk.width - (d < 0)))
+# define SLICE_SIZE 2000000
 
 // typedef
 typedef struct s_mark
 {
+	// slice
+	char	*slice;
+	char	neg;
+	int	slice_len;
+	int	len;
+	// flag
 	char	minus;
 	char 	space;
 	char	apos;
 	char	plus;
 	char	zero;
 	char 	hash;
-	int		width;
-	int		precis;
-	int		len;
+	// field minimun / precision 
+	int	width;
+	int	precis;
 	char	point;
-	char	neg;
 	// mod 
 	char h;
 	char l;
@@ -34,7 +40,7 @@ typedef struct s_mark
 typedef struct s_function_type
 {
 	char 	type;
-	size_t	(*t_function_type)(va_list, const char*, t_mark);
+	t_mark	(*t_function_type)(va_list, const char**, t_mark);
 } t_function_type;
 
 //test
@@ -48,34 +54,34 @@ int		ft_printf(const char *format, ...);
 // parsing
 void	flags(const char **format, t_mark *mk);
 void	format_parsing(const char **format, t_mark *mk);
-t_mark		init(void);
+void	init(t_mark *mk);
 void	modifier(const char **format, t_mark *mk );
 
 // dispatch
 
-size_t	new_format(va_list ap, const char **format);
-size_t 	s_spec(va_list ap, const char *format, t_mark mk);
-size_t 	ss_spec(va_list ap, const char *format, t_mark mk);
-size_t 	d_spec(va_list ap, const char *format, t_mark mk);
-size_t 	o_spec(va_list ap, const char *format, t_mark mk);
-size_t 	x_spec(va_list ap, const char *format, t_mark mk);
-size_t 	c_spec(va_list ap, const char *format, t_mark mk);
-size_t	dd_spec(va_list ap, const char *format, t_mark mk);
-size_t	p_spec(va_list ap, const char *format, t_mark mk);
-size_t 	u_spec(va_list ap, const char *format, t_mark mk);
-size_t 	no_spec(va_list ap, const char *format, t_mark mk);
-size_t 	pourcent_spec(va_list ap, const char *format, t_mark mk);
+t_mark	new_format(va_list ap, const char **format, t_mark mk);
+t_mark 	s_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	ss_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	d_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	o_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	x_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	c_spec(va_list ap, const char **format, t_mark mk);
+t_mark	dd_spec(va_list ap, const char **format, t_mark mk);
+t_mark	p_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	u_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	no_spec(va_list ap, const char **format, t_mark mk);
+t_mark 	pourcent_spec(va_list ap, const char **format, t_mark mk);
 
 // display
-size_t	s_display(char *s, t_mark mk);
-size_t	c_display(char c, t_mark mk);
-size_t	ss_display(wchar_t *s, t_mark mk);
-size_t	cc_display(wchar_t c, t_mark mk);
-size_t	d_display(int long long i, t_mark mk);
-size_t	o_display(unsigned long long d, t_mark mk);
-size_t	x_display(unsigned long long d, t_mark mk, char *base);
-size_t	u_display(unsigned int long long d, t_mark mk);
-size_t	no_display(t_mark mk);
+t_mark	s_display(char *s, t_mark mk);
+t_mark	c_display(char c, t_mark mk);
+t_mark	ss_display(wchar_t *s, t_mark mk);
+t_mark	cc_display(wchar_t c, t_mark mk);
+t_mark	d_display(int long long i, t_mark mk);
+t_mark	o_display(unsigned long long d, t_mark mk);
+t_mark	x_display(unsigned long long d, t_mark mk, char *base);
+t_mark	u_display(unsigned int long long d, t_mark mk);
+t_mark	no_display(t_mark mk);
 int	rel_sous(int i, int d);
 
 

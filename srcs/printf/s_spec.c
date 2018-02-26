@@ -13,7 +13,7 @@
 
 #include "ft_printf.h"
 
-size_t	s_spec(va_list ap, const char *format, t_mark mk)
+t_mark 	s_spec(va_list ap, const char **format, t_mark mk)
 {
 	char *s;
 	(void)format;
@@ -23,5 +23,6 @@ size_t	s_spec(va_list ap, const char *format, t_mark mk)
 		return (ss_spec(ap, format, mk));
 	s = va_arg(ap, char *);
 	s = (s ? s : null);
+	(*format)++;
 	return (s_display(s, mk));
 }

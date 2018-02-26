@@ -12,62 +12,45 @@
 
 #include "ft_printf.h"
 
-static size_t		put_spaces(t_mark mk)
+char	*left_pad(t_mark mk)
 {
-	int i;
+	char	*s;
+	int	len;
+	int	i;
+
 
 	i = 0;
-	while (i < (mk.width -  (mk.point ?    ( mk.precis > mk.len ? mk.len : mk.precis ): mk.len   )    ))
-		i += ft_putchar(' ');
-	return ((size_t)i);
-}
-
-static size_t		put_padding(int len, t_mark mk)
-{
-	int i;
-
-	i = 0;
-	if (len <= 0)
-		return (0);
-	while (i < len)
+	len = mk.width - mk.len;
+	if (len > 0)
 	{
-		ft_putchar(mk.zero ? '0' : ' ');
-		i++;
+		s = (char *)malloc(sizeof(char) * len + 1);
+		s[len] = '\0';
+		while (i < len)
+		{
+			s[i] = ' ';
+			mk.slice_len += 1;
+			i++;
+		}
 	}
-	return ((size_t)len);
+	else
+		return ("");
+	return (s);
 }
 
-static size_t		put_precision(char *s, t_mark mk)
+t_mark	stringify_format(char *s, t_mark mk)
 {
-	size_t ret;
-
-	ret = 0;
-	if (!mk.point)
-		return (ft_putstr(s));
-	while (*s && mk.precis)
-	{
-		ft_putchar(*s);
-		mk.precis--;
-		ret++;
-		s++;
-	}
-	return (ret);
-}
-
-size_t	s_display(char *s, t_mark mk)
-{
-	size_t len;
-	int pad;
-
+	int slen;
 	mk.len = ft_strlen(s);
-	//printf("precis: %d \n", mk.precis);
-	pad = mk.len > mk.precis ? (mk.width - ( mk.point ? mk.precis : mk.len)) : (mk.width - mk.len);
+	slen = ft_strlen(s);
+	ft_strcat(mk.slice, left_pad(mk));
+	ft_strcat(mk.slice, s);
+	mk.slice_len += slen;
+	return (mk);
+}
 
-	len = 0;
-	if (!mk.minus)
-		len += put_padding(pad, mk);
-	len += put_precision(s, mk);
-	if (mk.minus)
-		len += put_spaces(mk);
-	return (len);
+t_mark	s_display(char *s, t_mark mk)
+{
+	mk = stringify_format(s, mk);
+	//printf("s_display: %s\n", mk.slice);
+	return (mk);
 }

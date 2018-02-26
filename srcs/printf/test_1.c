@@ -14,19 +14,31 @@
 #include "libft.h"
 #include <stdio.h>
 
+void	assert(char *s, char *s2)
+{
+	int ft;
+	int i;
+
+	ft = ft_printf(s, s2);
+	i= printf(s, s2);
+	printf("(%d)  (%d)\n\n", ft, i);
+}
+
+void	test(void)
+{
+	//printf("___________ 0 ______________\n");
+}
+
 void	test_1(void)
 {
 	int ft;
 	int i;
-	printf("___________ 1 ______________\n");
+	//printf("___________ 1 ______________\n");
 
-	//ft = ft_printf("%C\n", (wint_t)-2);
-	//i= printf("hello %C\n", (wint_t)-2);
-	//printf("(%d)  (%d)\n", ft, i);
-	ft = ft_printf("%###.0o%#.O et %#.1o !\n",0, 0, 0);
-	i = printf("%###.0o%#.O et %#.1o !\n",0, 0, 0);
-	printf("%d  %d\n", ft, i);
 
+	assert("%s\n", "hello");
+	assert("%10s\n", "hello");
+	/*
 	ft = ft_printf("%.5S\n", L"Risitas¬");
 	i = printf("%.5S\n", L"Risitas¬");
 	printf("%d  %d\n", ft, i);
@@ -47,7 +59,6 @@ void	test_1(void)
 	i = printf("%.S\n", L"我是一只猫。");
 	printf("%d - %d\n", ft, i);
 
-	/*
 	ft = ft_printf("%U\n", ULONG_MAX);
 	i = printf("%U\n", ULONG_MAX);
 	printf("%d - %d\n", ft, i);
@@ -75,13 +86,6 @@ void	test_1(void)
 	*/
 
 }
-
-void	test(void)
-{
-	printf("___________ 0 ______________\n");
-	printf("%lld\n", MB_CUR_MAX);
-}
-
 void	test_2(void)
 {
 	printf("___________ 2 ______________\n");
