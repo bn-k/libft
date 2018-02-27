@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 16:51:46 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 15:46:43 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ t_mark	o_spec(va_list ap, const char **format, t_mark mk)
 	
 
 	if (**format == 'O')
+	{
+		(*format)++;
 		return (o_display((uintmax_t)va_arg(ap,unsigned long) , mk));
+	}
+	(*format)++;
 	if (mk.h == 1)
 		return (o_display((unsigned short)va_arg(ap, int), mk));
 	if (mk.z == 1)

@@ -13,8 +13,9 @@ static void	precision_len(int long long i, t_mark *mk)
 		mk->fill = (mk->precis < mk->len ? 0 : mk->precis - mk->len);
 }
 
-void	d_math(int long long i, t_mark *mk)
+void	u_math(unsigned long long i, t_mark *mk)
 {
 	precision_len(i, mk);
 	padding_len(mk);
+//	printf("len %d\n", mk->len);
 }

@@ -48,6 +48,9 @@ typedef struct s_function_type
 //tools
 void	math(char *s, t_mark *mk);
 void	d_math(int long long i, t_mark *mk);
+void	u_math(unsigned long long i, t_mark *mk);
+void	o_math(unsigned long long i, t_mark *mk);
+void	x_math(unsigned long long i, t_mark *mk);
 void	math_utf8(wchar_t *s, t_mark *mk);
 size_t	conv_utf8(char *s, wchar_t wc, int limit);
 

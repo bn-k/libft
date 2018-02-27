@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/27 15:31:42 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 15:44:34 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	right_pad(t_mark *mk)
 	int i;
 
 	i = 0;
-	while (i < mk->pad - (mk->plus || mk->neg))
+	while (i < mk->pad - POS(mk->fill - (mk->plus || mk->neg)))
 	{
 		mk->slice[mk->slice_len] = ' ';
 		mk->slice_len++;

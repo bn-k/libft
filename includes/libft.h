@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:24:11 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/27 14:06:07 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 16:02:33 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ size_t	ft_nbrlen_base(unsigned long long nb,unsigned int lenbase);
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
 char	*ft_itoa_iull(unsigned long long n);
+char	*ft_itoa_base(unsigned long long n, char *base);
 
 
 // print numbers

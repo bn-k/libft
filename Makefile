@@ -57,6 +57,7 @@ SRC =\
 	 numbers/ft_putnbr_fd.c \
 	 numbers/ft_atoi.c \
 	 numbers/ft_itoa.c \
+	 numbers/ft_itoa_base.c \
 	 numbers/ft_nbrlen.c \
 	 numbers/ft_print_adress.c \
 	 memory/ft_memcmp.c \
@@ -96,6 +97,8 @@ SRC =\
 	 printf/modifier.c \
 	 printf/flags.c \
 	 printf/d_math.c \
+	 printf/o_math.c \
+	 printf/x_math.c \
 	 printf/pad.c \
 	 printf/pad_utf8.c \
 	 printf/mark.c \

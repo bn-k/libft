@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/27 15:30:30 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 17:06:03 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,31 +56,28 @@ void	test_1(void)
 {
 	int ft;
 	int i;
-	//printf("___________ 1 ______________\n");
+	printf("___________ 1 ______________\n");
 
 
-	assertI("%010d\n", 34513);
-	assertI("%ld\n", LONG_MAX);
-	assertI("%i\n", -4);
-	assertI("%i\n", INT_MIN);
-	assertI("%D\n", LONG_MAX);
-	assertI("%+.0d\n", 333);
-	assertI("%+.0d\n", 3);
-	assertI("%.5d\n", 1);
-	assertI("%+8.5d\n", 2);
-	assertI("%+08.5d\n", 22);
-	assertI("%+05.8d\n", 3);
-	assertI("%+08d\n", 4);
-	assertI("%+-010d-\n", -482);
-	assertI("%+ 04d\n", 40);
-	assertI("%+42lli\n", LLONG_MAX);
-	assertI("% d\n", 0);
-	assertI("%+ 04d\n", 40);
+	assertI("%010o\n", 34513);
+	assertI("%lo\n", LONG_MAX);
+	assertI("%o\n", -4);
+	assertI("%o\n", INT_MIN);
+	assertI("%o\n", LONG_MAX);
+	assertI("%+.0o\n", 333);
+	assertI("%+.0o\n", 3);
+	assertI("%.5o\n", 1);
+	assertI("%+8.5o\n", 2);
+	assertI("%+08.5o\n", 22);
+	assertI("%+05.8o\n", 3);
+	assertI("%+08o\n", 4);
+	assertI("%+-010o-\n", -482);
+	assertI("%+ 04o\n", 40);
+	assertI("%+42llo-\n", LLONG_MAX);
+	assertI("% o\n", 0);
+	assertI("%+ 04o\n", 40);
 
-	ft = ft_printf("% 20.12ld et % 05D% 4.8hi !\n", 0x11ffaa147, 24, (short)-2345);
-	i = printf("% 20.12ld et % 05D% 4.8hi !\n", 0x11ffaa147, 24, (short)-2345);
-	printf("%d  %d\n", ft, i);
-
+	printf("___________ itoa base______________\n");
 	/*
 	assertI();
 	ft = ft_printf("%.5S\n", L"†œø˙Unicode string");

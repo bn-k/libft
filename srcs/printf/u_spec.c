@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:27:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 19:04:51 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 15:38:42 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@
 t_mark	u_spec(va_list ap, const char **format, t_mark mk)
 {
 	if (**format == 'U')
+	{
+		(*format)++;
 		return (u_display((unsigned long)va_arg(ap,unsigned long), mk));
+	}
+	(*format)++;
 	if (mk.h == 1)
 		return (u_display((unsigned short)va_arg(ap,unsigned int), mk));
 	if (mk.h == 2)

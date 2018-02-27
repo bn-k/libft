@@ -8,12 +8,12 @@ static void	padding_len(t_mark *mk)
 
 static void	precision_len(int long long i, t_mark *mk)
 {
-	mk->len = ft_nbrlen_iull(i);
+	mk->len = ft_nbrlen_base(i, 8);
 	if (mk->point)
 		mk->fill = (mk->precis < mk->len ? 0 : mk->precis - mk->len);
 }
 
-void	d_math(int long long i, t_mark *mk)
+void	o_math(unsigned long long i, t_mark *mk)
 {
 	precision_len(i, mk);
 	padding_len(mk);
