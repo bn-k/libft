@@ -21,7 +21,7 @@ void	modifier(const char **format, t_mark *mk )
 	while ((i = ismod(**format)))
 	{
 		mk->h= (i == 1 ? 1 + mk->h : mk->h);
-		mk->l= (i == 2 ? 1 + mk->h : mk->l);
+		mk->l= (i == 2 ? 1 + mk->l : mk->l);
 		mk->j= (i == 3 ? 1 : mk->j);
 		mk->z= (i == 4 ? 1 : mk->z);
 		mk->q= (i == 5 ? 1 : mk->q);

@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 15:24:11 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/23 12:59:38 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 14:06:07 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct	s_list
 size_t	ft_nbrlen(int long long nb);
 size_t	ft_nbrlen_iull(unsigned long long nb);
 size_t	ft_nbrlen_base(unsigned long long nb,unsigned int lenbase);
+int		ft_atoi(const char *str);
+char	*ft_itoa(int n);
+char	*ft_itoa_iull(unsigned long long n);
 
 
 // print numbers
@@ -65,7 +68,6 @@ size_t	ft_putstr(char const *s);
 void	ft_putendl(char const *s);
 void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
-int	ft_atoi(const char *str);
 char	*ft_strdup(char *src);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
@@ -95,7 +97,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
-char	*ft_itoa(int n);
 int	ft_display_file(char *str, int to_close);
 
 // chars

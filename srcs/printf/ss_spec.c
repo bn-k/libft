@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:18 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/22 18:22:38 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 12:41:43 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ t_mark	ss_spec(va_list ap, const char **format, t_mark mk)
 	(void)ap;
 	(void)mk;
 	wchar_t *s;
-	wchar_t null[7] = L"(null)\0";
 
-	if (!(s = va_arg(ap, wchar_t *)))
-		s = null;
+	(*format)++;
+	s = va_arg(ap, wchar_t *);
+	if (s == NULL)
+		return (ss_display(L"(null)\0", mk));
 	return (ss_display(s, mk));
 }

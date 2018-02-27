@@ -89,12 +89,15 @@ SRC =\
 	 utf8/ft_putchar_utf8.c \
 	 utf8/ft_putstr_utf8.c \
 	 utf8/ft_strlen_utf8.c \
+	 utf8/utf8_to_s.c \
 	 printf/ft_printf.c \
 	 printf/test_1.c \
 	 printf/parser.c \
 	 printf/modifier.c \
 	 printf/flags.c \
+	 printf/d_math.c \
 	 printf/pad.c \
+	 printf/pad_utf8.c \
 	 printf/mark.c \
 	 printf/s_spec.c \
 	 printf/c_spec.c \

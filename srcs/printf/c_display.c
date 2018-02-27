@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 11:01:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/23 15:50:30 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 09:06:37 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 t_mark	c_display(char c, t_mark mk)
 {
 	(void)c;
+	return (mk);
 }
 
 t_mark	cc_display(wchar_t c, t_mark mk)

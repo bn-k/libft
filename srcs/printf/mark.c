@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:33:41 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 17:38:57 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 14:48:46 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void		init(t_mark *mk)
 {
 
 	mk->hash = 0;
+	mk->fill = 0;
 	mk->zero = 0;
 	mk->minus = 0;
 	mk->space = 0;

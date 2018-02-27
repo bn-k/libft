@@ -6,14 +6,14 @@ static void	padding_len(t_mark *mk)
 	mk->pad = mk->width - mk->len;
 }
 
-static void	string_len(char *s, t_mark *mk)
+static void	string_len(wchar_t *s, t_mark *mk)
 {
-	mk->len = ft_strlen(s);
+	mk->len = ft_strlen_utf8(s);
 	if (mk->point)
 		mk->len = (mk->precis < mk->len ? mk->precis : mk->len);
 }
 
-void	math(char *s, t_mark *mk)
+void	math_utf8(wchar_t *s, t_mark *mk)
 {
 	string_len(s, mk);
 	padding_len(mk);

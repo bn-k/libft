@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 08:21:31 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/23 15:50:39 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/02/27 15:30:30 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,32 @@ void	assert(char *s, char *s2)
 	int ft;
 	int i;
 
+	printf("--------- assert _________\n");
 	ft = ft_printf(s, s2);
 	i= printf(s, s2);
-	printf("(%d)  (%d)\n\n", ft, i);
+	printf("(%d)  (%d)\n", ft, i);
+}
+
+void	assertI(char *s, long long s2)
+{
+	int ft;
+	int i;
+
+	printf("--------- assert _________\n");
+	ft = ft_printf(s, s2);
+	i= printf(s, s2);
+	printf("(%d)  (%d)\n", ft, i);
+}
+
+void	assertS(char *s, wchar_t *s2)
+{
+	int ft;
+	int i;
+
+	printf("--------- assert _________\n");
+	ft = ft_printf(s, s2);
+	i= printf(s, s2);
+	printf("(%d)  (%d)\n", ft, i);
 }
 
 void	test(void)
@@ -36,13 +59,30 @@ void	test_1(void)
 	//printf("___________ 1 ______________\n");
 
 
-	assert("%s\n", "hello");
-	assert("%10s\n", "hello");
-	/*
-	ft = ft_printf("%.5S\n", L"Risitas¬");
-	i = printf("%.5S\n", L"Risitas¬");
+	assertI("%010d\n", 34513);
+	assertI("%ld\n", LONG_MAX);
+	assertI("%i\n", -4);
+	assertI("%i\n", INT_MIN);
+	assertI("%D\n", LONG_MAX);
+	assertI("%+.0d\n", 333);
+	assertI("%+.0d\n", 3);
+	assertI("%.5d\n", 1);
+	assertI("%+8.5d\n", 2);
+	assertI("%+08.5d\n", 22);
+	assertI("%+05.8d\n", 3);
+	assertI("%+08d\n", 4);
+	assertI("%+-010d-\n", -482);
+	assertI("%+ 04d\n", 40);
+	assertI("%+42lli\n", LLONG_MAX);
+	assertI("% d\n", 0);
+	assertI("%+ 04d\n", 40);
+
+	ft = ft_printf("% 20.12ld et % 05D% 4.8hi !\n", 0x11ffaa147, 24, (short)-2345);
+	i = printf("% 20.12ld et % 05D% 4.8hi !\n", 0x11ffaa147, 24, (short)-2345);
 	printf("%d  %d\n", ft, i);
 
+	/*
+	assertI();
 	ft = ft_printf("%.5S\n", L"†œø˙Unicode string");
 	i = printf("%.5S\n", L"†œø˙Unicode string");
 	printf("%d  %d\n", ft, i);

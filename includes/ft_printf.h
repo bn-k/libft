@@ -27,7 +27,9 @@ typedef struct s_mark
 	char 	hash;
 	// field minimun / precision 
 	int	width;
+	int	pad;
 	int	precis;
+	int	fill;
 	char	point;
 	// mod 
 	char h;
@@ -42,6 +44,14 @@ typedef struct s_function_type
 	char 	type;
 	t_mark	(*t_function_type)(va_list, const char**, t_mark);
 } t_function_type;
+
+//tools
+void	math(char *s, t_mark *mk);
+void	d_math(int long long i, t_mark *mk);
+void	math_utf8(wchar_t *s, t_mark *mk);
+size_t	conv_utf8(char *s, wchar_t wc, int limit);
+
+
 
 //test
 void	test_1(void);
@@ -82,7 +92,5 @@ t_mark	o_display(unsigned long long d, t_mark mk);
 t_mark	x_display(unsigned long long d, t_mark mk, char *base);
 t_mark	u_display(unsigned int long long d, t_mark mk);
 t_mark	no_display(t_mark mk);
-int	rel_sous(int i, int d);
-
 
 #endif
