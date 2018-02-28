@@ -92,7 +92,7 @@ t_mark	ss_display(wchar_t *s, t_mark mk);
 t_mark	cc_display(wchar_t c, t_mark mk);
 t_mark	d_display(int long long i, t_mark mk);
 t_mark	o_display(unsigned long long d, t_mark mk);
-t_mark	x_display(unsigned long long d, t_mark mk, char *base);
+t_mark	x_display(unsigned long long i, t_mark mk, char *base);
 t_mark	u_display(unsigned int long long d, t_mark mk);
 t_mark	no_display(t_mark mk);
 

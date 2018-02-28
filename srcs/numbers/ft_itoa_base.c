@@ -72,6 +72,8 @@ char			*ft_itoa_base(unsigned long long n, char *base)
 	int 	i;
 	int		y;
 
+	if (n == 0)
+		return ("0");
 	s = (char *)malloc(sizeof(char) * 33);
 	i = 0;
 	div = ft_len_base(base);

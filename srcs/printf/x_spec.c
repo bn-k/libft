@@ -19,9 +19,16 @@ t_mark	x_spec(va_list ap, const char **format, t_mark mk)
 	
 
 	if (**format == 'X' && mk.h == 2)
+	{
+		(*format)++;
 		return (x_display((unsigned char)va_arg(ap, long) , mk, "0123456789ABCDEF"));
+	}
 	if (**format == 'X')
+	{
+		(*format)++;
 		return (x_display((unsigned long)va_arg(ap, long) , mk, "0123456789ABCDEF"));
+	}
+	(*format)++;
 	if (mk.h == 1)
 		return (x_display((unsigned short)va_arg(ap, int), mk, "0123456789abcdef"));
 	if (mk.z == 1)
@@ -34,5 +41,5 @@ t_mark	x_spec(va_list ap, const char **format, t_mark mk)
 		return (x_display((unsigned long long)va_arg(ap, long long) , mk, "0123456789abcdef"));
 	if (mk.j == 1)
 		return (x_display((uintmax_t)va_arg(ap, long long) , mk, "0123456789abcdef"));
-	return (x_display((unsigned long)va_arg(ap,unsigned long) , mk, "0123456789abcdef"));
+	return (x_display((long)va_arg(ap,long) , mk, "0123456789abcdef"));
 }

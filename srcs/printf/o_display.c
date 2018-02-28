@@ -18,17 +18,22 @@ static void	left_pad(t_mark *mk)
 	int i;
 
 	i = 0;
-	while ((!mk->zero || mk->point) && i < POS(mk->pad - mk->fill))
+	while ((!mk->zero || mk->point) && i < POS(mk->pad - mk->fill - mk->hash))
 	{
 		mk->slice[mk->slice_len] = ' ';
 		mk->slice_len++;
 		i++;
 	}
-	while (mk->zero && !mk->point && i < mk->pad)
+	while (mk->zero && !mk->point && i < mk->pad - mk->hash)
 	{
 		mk->slice[mk->slice_len] = '0';
 		mk->slice_len++;
 		i++;
+	}
+	if (mk->hash)
+	{
+		mk->slice[mk->slice_len] = '0';
+		mk->slice_len++;
 	}
 }
 
@@ -42,7 +47,7 @@ static void	string(unsigned long long nb, t_mark *mk)
 		;
 	else
 	{
-		while (mk->point && (i < mk->fill))
+		while (mk->point && (i < mk->fill - (mk->hash ? 1: 0)))
 		{
 			mk->slice[mk->slice_len] = '0';
 			mk->slice_len++;

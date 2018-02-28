@@ -58,28 +58,13 @@ void	test_1(void)
 	int i;
 	printf("___________ 1 ______________\n");
 
+	int test = -4;
 
-	assertI("%010o\n", 34513);
-	assertI("%lo\n", LONG_MAX);
-	assertI("%o\n", -4);
-	assertI("%o\n", INT_MIN);
-	assertI("%o\n", LONG_MAX);
-	assertI("%+.0o\n", 333);
-	assertI("%+.0o\n", 3);
-	assertI("%.5o\n", 1);
-	assertI("%+8.5o\n", 2);
-	assertI("%+08.5o\n", 22);
-	assertI("%+05.8o\n", 3);
-	assertI("%+08o\n", 4);
-	assertI("%+-010o-\n", -482);
-	assertI("%+ 04o\n", 40);
-	assertI("%+42llo-\n", LLONG_MAX);
-	assertI("% o\n", 0);
-	assertI("%+ 04o\n", 40);
-
-	printf("___________ itoa base______________\n");
+	assertI("%#0#4lx\n", test);
 	/*
-	assertI();
+	printf("\n----------itoa base-----------\n");
+	ft_putendl(ft_itoa_base(test, "0123456789abcdef"));
+	ft_putnbr_base(test, "0123456789abcdef");
 	ft = ft_printf("%.5S\n", L"†œø˙Unicode string");
 	i = printf("%.5S\n", L"†œø˙Unicode string");
 	printf("%d  %d\n", ft, i);

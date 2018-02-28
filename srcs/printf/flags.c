@@ -20,7 +20,7 @@ void	flags(const char **format, t_mark *mk)
 	while ((i = isflag(**format)))
 	{
 		//printf("flags: %s\n", *format);
-		mk->hash= (i == 1 ? 2 : mk->hash);
+		mk->hash= (i == 1 ? 1 : mk->hash);
 		mk->zero= (i == 2 ? 1 : mk->zero);
 		mk->minus = (i == 3 ? 1 : mk->minus);
 		mk->space = (i == 4 ? 1 : mk->space);
