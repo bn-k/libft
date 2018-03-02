@@ -70,7 +70,6 @@ char			*ft_itoa_base(unsigned long long n, char *base)
 	char	*s;
 	int		div;
 	int 	i;
-	int		y;
 
 	if (n == 0)
 		return ("0");

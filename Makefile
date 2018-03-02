@@ -10,7 +10,7 @@ NAME = libftprintf.a
 
 # compilation
 CC = clang
-FLAGS = # -Wall -Werror -Wextra
+FLAGS =  -Wall -Werror -Wextra
 
 # dir
 D_SRC = srcs
@@ -92,6 +92,11 @@ SRC =\
 	 utf8/ft_strlen_utf8.c \
 	 utf8/utf8_to_s.c \
 	 printf/ft_printf.c \
+	 printf/main_assets.c \
+	 printf/spread_others.c \
+	 printf/spread_integers.c \
+	 printf/kitchen.c \
+	 printf/extract_data.c \
 
 
 # SPECIAL CHARS

@@ -8,7 +8,7 @@
 # define SIGN (((mk.plus || mk.space) && (d >= 0)) || mk.neg)
 # define PRECIS (mk.zero ? mk.width : mk.precis )
 # define PAD (mk.zero ? 0 : POS(mk.width - (d < 0)))
-# define SLICE_SIZE 2000000
+# define BID 1
 # define DEATH -1
 # define NO 0 
 # define EXALT 1
@@ -16,13 +16,14 @@
 
 // typedef
 //
-
+char g_trunk[BID];
+  
 typedef struct	s_total
 {
-	char	**trunk;
-	char	**format;
-	int	*quanta;
-	va_list *ap;
+	const char	*format;
+	int		i;
+	int		quanta;
+	va_list 	*ap;
 }		t_total;
 
 typedef struct s_body
@@ -39,10 +40,11 @@ typedef struct s_body
 	char 	sharp; //sharp
 	// field minimun / precision 
 	int	width; 
-	int	distance; // distance 
 	int	precis; 
-	int	fill; 
 	char	point; 
+	// after mathematic
+	int	fill; 
+	int	distance; // distance 
 	// mod 
 	char h;
 	char l;
@@ -51,11 +53,11 @@ typedef struct s_body
 	char q;
 } t_body; // being
 
-typedef struct s_genome
+typedef struct s_on_trunk
 {
-	char 	type;
-	t_body	(*t_genome)(va_list, const char**, t_body);
-} t_genome;
+	char 	code;
+	t_total	(*t_on_trunk)(t_total*, t_body*);
+} t_on_trunk;
 
 //genuine
 void	math(char *s, t_body *body);
@@ -72,36 +74,29 @@ void	test_2(void);
 void	test_3(char *s, char *s2);
 
 // main
-int		ft_printf(const char *format, ...);
+int	ft_printf(const char *format, ...);
+void	init_total(t_total *total, const char *format, va_list *ap);
+t_total	charcat(char c, t_total *total);
+void	materialize(t_total total);
+
 
 // parsing
-void	flags(const char **format, t_body *body);
-void	format_parsing(const char **format, t_body *body); // spreading from genome
-void	init(t_body *body); // init_body 
-void	modifier(const char **format, t_body *body );
+void	body_parser(t_total *total, t_body *body);
+void	flags(t_total *total, t_body *body);
+void	width_and_precision(t_total *total, t_body *body);
+void	modifier(t_total *total, t_body *body);
 
 // dispatcher
 
-t_body	body_birth(va_list ap, const char **format, t_body body); // body_birth
-t_body 	c_genome(t_body body); 
-t_body 	di_genome(t_body body);
-t_body 	o_genome(t_body body);
-t_body 	u_genome(t_body body);
-t_body 	x_genome(t_body body);
-t_body	dd_genome(t_body body);
-t_body	p_genome(t_body body);
-t_body 	no_genome(t_body body);
-t_body 	mod_genome(t_body body);
-
-// fill trunk
-t_body	c_on_trunk(char c, t_body body);
-t_body	cc_on_trunk(wchar_t c, t_body body);
-t_body	s_on_trunk(char *s, t_body body);
-t_body	ss_on_trunk(wchar_t *s, t_body body);
-t_body	di_on_trunk(int long long i, t_body body);
-t_body	o_on_trunk(unsigned long long d, t_body body); // o_trunker
-t_body	u_on_trunk(unsigned int long long d, t_body body);
-t_body	x_on_trunk(unsigned long long i, t_body body, char *base);
-t_body	no_on_trunk(t_body body);
+t_total 	c_on_trunk(t_total *total, t_body *body); 
+t_total 	s_on_trunk(t_total *total, t_body *body); 
+t_total 	d_on_trunk(t_total *total, t_body *body);
+t_total 	o_on_trunk(t_total *total, t_body *body);
+t_total 	u_on_trunk(t_total *total, t_body *body);
+t_total 	x_on_trunk(t_total *total, t_body *body);
+t_total		dd_on_trunk(t_total *total, t_body *body);
+t_total		p_on_trunk(t_total *total, t_body *body);
+t_total 	no_on_trunk(t_total *total, t_body *body);
+t_total 	mod_on_trunk(t_total *total, t_body *body);
 
 #endif
