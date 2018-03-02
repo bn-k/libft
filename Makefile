@@ -92,35 +92,6 @@ SRC =\
 	 utf8/ft_strlen_utf8.c \
 	 utf8/utf8_to_s.c \
 	 printf/ft_printf.c \
-	 printf/test_1.c \
-	 printf/parser.c \
-	 printf/modifier.c \
-	 printf/flags.c \
-	 printf/d_math.c \
-	 printf/o_math.c \
-	 printf/x_math.c \
-	 printf/pad.c \
-	 printf/pad_utf8.c \
-	 printf/mark.c \
-	 printf/s_spec.c \
-	 printf/c_spec.c \
-	 printf/p_spec.c \
-	 printf/ss_spec.c \
-	 printf/d_spec.c \
-	 printf/o_spec.c \
-	 printf/no_spec.c \
-	 printf/x_spec.c \
-	 printf/dd_spec.c \
-	 printf/u_spec.c \
-	 printf/pourcent_spec.c \
-	 printf/s_display.c \
-	 printf/c_display.c \
-	 printf/d_display.c \
-	 printf/x_display.c \
-	 printf/o_display.c \
-	 printf/u_display.c \
-	 printf/ss_display.c \
-	 printf/no_display.c \
 
 
 # SPECIAL CHARS
