@@ -1,16 +1,17 @@
 #include "../includes/ft_printf.h"
 
+char g_trunk[BID];
 
-const t_on_trunk on_trunk_tab[] = {
+static const t_on_trunk on_trunk_tab[] = {
 	{'%', mod_on_trunk},
 	{'s', s_on_trunk},
-	{'S', s_on_trunk},
+	{'S', ws_on_trunk},
 	{'c', c_on_trunk},
-	{'C', c_on_trunk},
+	{'C', wc_on_trunk},
 	{'d', d_on_trunk},
 	{'i', d_on_trunk},
-	{'D', dd_on_trunk},
-	{'p', p_on_trunk},
+	{'D', d_on_trunk},
+	{'p', x_on_trunk},
 	{'u', u_on_trunk},
 	{'U', u_on_trunk},
 	{'o', o_on_trunk},
@@ -20,12 +21,10 @@ const t_on_trunk on_trunk_tab[] = {
 	{'0', no_on_trunk},
 };
 
-t_total body_born(t_total *total)
+static int body_born(t_total *total)
 {
 	int	i;
 	t_body body;
-	(void)body;
-	(void)total;
 
 	total->format++;
 	body_parser(total, &body);
@@ -34,7 +33,7 @@ t_total body_born(t_total *total)
 	{
 		if (*total->format == on_trunk_tab[i].code)
 		{
-			total->format++; // a eblever
+			total->format++;
 			return (on_trunk_tab[i].t_on_trunk(total, &body));
 		}
 		i++;
@@ -52,7 +51,7 @@ int	ft_printf(const char *format, ...)
 	while (*total.format)
 	{
 		if (*total.format == '%')
-			total = body_born(&total);
+			body_born(&total);
 		else
 		{
 			charcat(*total.format, &total);
@@ -60,7 +59,7 @@ int	ft_printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-	if (total.i)
+	if (total.i != 0)
 		write(1, g_trunk, total.i);
 	return (total.quanta);
 }

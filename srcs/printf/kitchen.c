@@ -1,25 +1,25 @@
 #include "ft_printf.h"
 
-t_total 	trunk_left_distance(t_total *total, t_body *body)
+void	trunk(char *s, t_total *total, t_body *body)
 {
-	(void)body;
-	return (*total);
-}
+	int		i;
 
-t_total 	trunk_left_zero(t_total *total, t_body *body)
-{
-	(void)body;
-	return (*total);
-}
-
-t_total 	trunk_value(t_total *total, t_body *body)
-{
-	(void)body;
-	return (*total);
-}
-
-t_total 	trunk_right_distance(t_total *total, t_body *body)
-{
-	(void)body;
-	return (*total);
+	i = 0;
+	while (i < body->left)
+	{
+		charcat(' ', total);
+		i++;
+	}
+	i = 0;
+	while (i < body->len)
+	{
+		charcat(s[i], total);
+		i++;
+	}
+	i = 0;
+	while (i < body->right)
+	{
+		charcat(' ', total);
+		i++;
+	}
 }

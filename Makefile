@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/03/04 13:10:20 by abbenham          #+#    #+#              #
+#    Updated: 2018/03/04 15:01:50 by abbenham         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ##########################################################################
 ##########################################################################
 ##########################################################################
@@ -10,7 +22,7 @@ NAME = libftprintf.a
 
 # compilation
 CC = clang
-FLAGS =  -Wall -Werror -Wextra
+FLAGS =  -Wall -Werror -Wextra # -Ofast # -O3
 
 # dir
 D_SRC = srcs
@@ -93,10 +105,21 @@ SRC =\
 	 utf8/utf8_to_s.c \
 	 printf/ft_printf.c \
 	 printf/main_assets.c \
-	 printf/spread_others.c \
-	 printf/spread_integers.c \
 	 printf/kitchen.c \
+	 printf/kitchen_o.c \
+	 printf/kitchen_x.c \
+	 printf/kitchen_integers.c \
+	 printf/kitchen_unicode.c \
 	 printf/extract_data.c \
+	 printf/c_on_trunk.c \
+	 printf/wc_on_trunk.c \
+	 printf/s_on_trunk.c \
+	 printf/d_on_trunk.c \
+	 printf/u_on_trunk.c \
+	 printf/o_on_trunk.c \
+	 printf/x_on_trunk.c \
+	 printf/ws_on_trunk.c \
+	 printf/mod_on_trunk.c \
 
 
 # SPECIAL CHARS

@@ -1,25 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_assets.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/03/04 13:02:06 by abbenham          #+#    #+#             */
+/*   Updated: 2018/03/04 15:57:03 by abbenham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-void	materialize(t_total total)
-{
-		write(1, g_trunk, total.i);
-		ft_bzero((void *)g_trunk, total.i);
-		total.i = 0;
-}
-
-t_total		charcat(char c, t_total *total)
+void	 charcat(char c, t_total *total)
 {
 	if (total->i == BID)
-		materialize(*total);
+	{
+		write(1, g_trunk, total->i);
+		total->i = 0;
+	}
 	g_trunk[total->i] = c;
 	total->i++;
 	total->quanta++;
-	return (*total);
 }
 
 void	init_total(t_total *total, const char *format, va_list *ap)
 {
 	total->quanta = 0;
+	ft_bzero((void*)g_trunk,BID);
 	total->i = 0;
 	total->format = format;
 	total->ap = ap;
