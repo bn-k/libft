@@ -18,9 +18,9 @@ static void	x_math(long long *nb, t_body *body)
 	if (*nb == 0 && body->minus == 0)
 		body->sharp = 0;
 	if (body->point)
-		body->fill = body->precis - body->len;
-	body->left = (body->width - body->len - (body->sharp * 2)) * (body->dash ? 0 : 1);
-	body->right = (body->width - body->len - body->sharp * 2) * body->dash;
+		body->fill = POS(body->precis - body->len);
+	body->left = POS(body->width - body->len - body->fill - (body->sharp * 2)) * (body->dash ? 0 : 1);
+	body->right = POS(body->width - body->len - body->fill - (body->sharp * 2)) * body->dash;
 }
 
 static int	x_casted(long long nb, t_total *total, t_body *body)

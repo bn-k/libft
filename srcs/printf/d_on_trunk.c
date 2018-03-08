@@ -14,29 +14,30 @@
 
 static void	d_math(long long *nb, t_body *body)
 {
-	body->len = ft_nbrlen_iull(*nb);
 	if (*nb < 0)
 	{
 		body->minus = 1;
 		*nb = -*nb;
 	}
-	if (body->point && !body->dash)
+	body->len = ft_nbrlen_iull(*nb);
+	//printf("body %d \n", body->len);
+	if (body->point)
 	{
 		body->fill = POS(body->precis - body->len);
 	}
 	//printf("len: %d, right %d , fill %d\n", body->len, body->right, body->fill);
 	body->plus = body->plus * !body->minus;
-	body->left = POS(body->width - body->len - SIGN - body->fill * (body->dash ? 0 : 1));
-	body->right = (body->width - body->len - (body->plus || body->minus)) * body->dash;
+	body->left = POS(body->width - body->len - SIGN - body->fill) * (body->dash ? 0 : 1);
+	body->right = (body->width - body->len - SIGN - body->fill) * body->dash;
 	//printf("left %d, right %d , fill %d\n", body->left, body->right, body->fill);
 }
 
-static int d_casted(long long nb, t_total *total, t_body *body)
+static int	d_casted(long long nb, t_total *total, t_body *body)
 {
 	char *s;
+
 	d_math(&nb, body);
 	s = ft_itoa_iull(nb);
-	printf("itoa : %s len %d \n", s, ft_strlen(s));
 	trunk_integers(s, total, body);
 	return (1);
 }

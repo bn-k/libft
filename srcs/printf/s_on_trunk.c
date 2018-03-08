@@ -23,7 +23,7 @@ static void	s_math(char *s, t_body *body)
 
 }
 
-static int s_casted(char *s, t_total *total, t_body *body)
+int s_casted(char *s, t_total *total, t_body *body)
 {
 	s_math(s, body);
 	trunk(s, total, body);

@@ -44,6 +44,7 @@ void	trunk_integers_value(char *s, t_total *total, t_body *body)
 	{
 		while (i < body->len)
 		{
+		//printf("len %d \n", total->quanta);
 			charcat(s[i], total);
 			i++;
 		}

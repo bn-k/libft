@@ -7,7 +7,7 @@
 # include <stdint.h>
 # define PAD_ZERO (!body->point && body->zero)
 # define PAD_SPACE (!body->zero || body->point) 
-# define SIGN (body->plus || body->minus)
+# define SIGN ((!body->minus && (body->plus || body->space)) || body->minus)
 # define FILL body->fill
 # define POS(i) (i < 0 ? 0 : i) 
 # define HASH (body->sharp && (!FILL && !PAD_ZERO))
@@ -64,7 +64,10 @@ typedef struct s_on_trunk
 
 //kitchen
 void	trunk(char *s, t_total *total, t_body *body);
-void	trunk_unicode(wchar_t *s, t_total *total, t_body *body);
+void	trunk_unicode_wc(wchar_t *s, t_total *total, t_body *body);
+void	trunk_unicode_ws(wchar_t *s, t_total *total, t_body *body);
+void	trunk_unicode_left_distance(t_total *total, t_body *body);
+void	trunk_unicode_right_distance(t_total *total, t_body *body);
 void	trunk_integers(char *s, t_total *total, t_body *body);
 void	trunk_o(char *s, t_total *total, t_body *body);
 void	trunk_x(char *s, t_total *total, t_body *body);
@@ -94,8 +97,13 @@ int 	d_on_trunk(t_total *total, t_body *body);
 int 	o_on_trunk(t_total *total, t_body *body);
 int 	u_on_trunk(t_total *total, t_body *body);
 int 	x_on_trunk(t_total *total, t_body *body);
-int		p_on_trunk(t_total *total, t_body *body);
+int	p_on_trunk(t_total *total, t_body *body);
 int 	no_on_trunk(t_total *total, t_body *body);
 int 	mod_on_trunk(t_total *total, t_body *body);
+
+
+int		c_casted(char c, t_total *total, t_body *body);
+int		s_casted(char *s, t_total *total, t_body *body);
+int		wc_casted(wchar_t wc, t_total *total, t_body *body);
 
 #endif

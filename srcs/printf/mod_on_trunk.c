@@ -12,19 +12,25 @@
 
 #include "ft_printf.h"
 
-static void	mod_math(char *s, t_body *body)
+static void	mod_math(t_body *body)
 {
-	body->len = ft_strlen(s);
-	if (body->point && body->len > body->precis)
-			body->len = body->precis;
-	body->left = (body->width - body->len) * (body->dash ? 0 : 1);
-	body->right = (body->width - body->len) * body->dash;
-	//printf("left %d, right %d , dash %d\n", body->left, body->right, body->dash);
+	body->len = 1;
+	//if (body->point)
+	//{
+	//	body->fill = POS(body->precis - body->len);
+	//}
+	//printf("len: %d, right %d , fill %d\n", body->len, body->right, body->fill);
+	body->plus = 0;
+	body->space = 0;
+	body->left = POS(body->width - body->len - SIGN - body->fill) * (body->dash ? 0 : 1);
+	body->right = (body->width - body->len - SIGN - body->fill) * body->dash;
+	//printf("left %d, right %d , fill %d\n", body->left, body->right, body->fill);
 }
+
 
 int		mod_on_trunk(t_total *total, t_body *body)
 {
-	mod_math("%", body);
-	trunk("%", total, body);
+	mod_math(body);
+	trunk_integers("%", total, body);
 	return (1);
 }

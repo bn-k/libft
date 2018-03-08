@@ -25,3 +25,12 @@ size_t	ft_charlen_utf8(wchar_t wc)
 		return (4);
 	return (0);
 }
+
+int	invalide_utf8(wchar_t wc)
+{
+	if (wc >= 0x10ffff  || wc > WINT_MAX || wc < 0 ||\
+			(wc >= 0xd800 && wc <= 0xdfff) ||\
+			MB_CUR_MAX == 1)
+		return (0);
+	return (1);
+}

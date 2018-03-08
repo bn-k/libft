@@ -13,22 +13,23 @@
 #include "ft_printf.h"
 #include "utf8.h"
 
-static void	wc_math(t_body *body)
-{
-	body->left = (body->width - body->len) * (body->dash ? 0 : 1);
-	body->right = (body->width - 1) * body->dash;
-}
-
 int		wc_casted(wchar_t wc, t_total *total, t_body *body)
 {
 	int	i;
 	char *s;
- 
+
 	i = 0;
+	if (MB_CUR_MAX == 1 && wc <= 255)
+		return (s_casted((char *)&wc, total, body));
+	else if (!invalide_utf8(wc))
+		return (-1);
 	s = (char *)malloc(sizeof(char) * 5);
-	body->len = conv_utf8(s, wc, 4);
-	wc_math(body);
-	trunk_unicode(&wc, total, body);
+	body->len = ft_charlen_utf8(wc);;
+	body->left = (body->width - body->len) * (body->dash ? 0 : 1);
+	body->right = (body->width - body->len) * body->dash;
+	trunk_unicode_left_distance(total, body);
+	trunk_unicode_wc(&wc, total, body);
+	trunk_unicode_right_distance(total, body);
 	free(s);
 	return (1);
 }

@@ -51,7 +51,10 @@ int	ft_printf(const char *format, ...)
 	while (*total.format)
 	{
 		if (*total.format == '%')
-			body_born(&total);
+		{
+			if (-1 == body_born(&total))
+				return (-1);
+		}
 		else
 		{
 			charcat(*total.format, &total);

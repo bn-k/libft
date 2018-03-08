@@ -35,15 +35,12 @@ static void	trunk_integers_value(char *s, t_total *total, t_body *body)
 
 	i = 0;
 
-	if (!(!body->precis && body->point && *s == '0'))
+	if (HASH)
+		charcat('0', total);
+	while (i < body->len)
 	{
-		if (HASH)
-			charcat('0', total);
-		while (i < body->len)
-		{
-			charcat(s[i], total);
-			i++;
-		}
+		charcat(s[i], total);
+		i++;
 	}
 }
 

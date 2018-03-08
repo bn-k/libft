@@ -24,8 +24,21 @@ static void	ws_math(wchar_t *ws, t_body *body)
 
 static int	ws_casted(wchar_t *ws, t_total *total, t_body *body)
 {
+	int	i;
+
+	i = 0;
+	/*
+	   while (ws[i])
+	   {
+	   if (!invalide_utf8(ws[i]))
+	   return (-1);
+	   i++;
+	   }
+	   */
 	ws_math(ws, body);
-	trunk_unicode(ws, total, body);
+	trunk_unicode_left_distance(total, body);
+	trunk_unicode_ws(ws, total, body);
+	trunk_unicode_right_distance(total, body);
 	return (1);
 }
 

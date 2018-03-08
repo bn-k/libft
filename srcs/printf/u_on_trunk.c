@@ -17,10 +17,11 @@ static void	u_math(long long *nb, t_body *body)
 	body->len = ft_nbrlen_iull(*nb);
 	body->plus = body->plus * !body->minus;
 	if (body->point)
-		body->fill = body->precis - body->len;
-	body->left = (body->width - body->len - (body->plus || body->minus)) * (body->dash ? 0 : 1);
-	body->right = (body->width - body->len - (body->plus || body->minus)) * body->dash;
+		body->fill = POS(body->precis - body->len);
+	body->left = POS(body->width - body->len - body->fill) * (body->dash ? 0 : 1);
+	body->right = POS(body->width - body->len - body->fill) * body->dash;
 	//printf("left %d, right %d , dash %d\n", body->left, body->right, body->dash);
+	//printf("len %d, right %d , dash %d\n", body->len, body->fill, body->dash);
 }
 
 static int	u_casted(long long nb, t_total *total, t_body *body)

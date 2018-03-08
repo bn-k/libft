@@ -15,11 +15,14 @@
 static void	o_math(long long *nb, t_body *body)
 {
 	body->len = ft_nbrlen_base(*nb, 8);
-	if (body->point)
-		body->fill = body->precis - body->len;
-	body->left = (body->width - body->len - HASH) * (body->dash ? 0 : 1);
-	body->right = (body->width - body->len - (body->plus || body->minus)) * body->dash;
+	if (!*nb)
+		body->sharp = 0;
+	if (body->point && nb != 0)
+		body->fill = POS(body->precis - body->len);
+	body->left = POS(body->width - body->len - body->fill - HASH ) * (body->dash ? 0 : 1);
+	body->right = POS(body->width - body->len - body->fill - HASH) * body->dash;
 	//printf("left %d, right %d , dash %d\n", body->left, body->right, body->dash);
+	//printf("fill %d, sharp %d , dash %d\n", body->fill, body->sharp, body->dash);
 }
 
 static int		o_casted(long long nb, t_total *total, t_body *body)

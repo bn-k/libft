@@ -19,7 +19,7 @@ static void	c_math(t_body *body)
 	body->right = (body->width - 1) * body->dash;
 }
 
-static int		c_casted(char c, t_total *total, t_body *body)
+int		c_casted(char c, t_total *total, t_body *body)
 {
 	(void)body;
 	trunk(&c, total, body);
