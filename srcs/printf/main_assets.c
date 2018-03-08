@@ -6,13 +6,13 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 13:02:06 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/04 15:57:03 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 17:00:02 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	 charcat(char c, t_total *total)
+void	charcat(char c, t_total *total)
 {
 	if (total->i == BID)
 	{
@@ -27,17 +27,20 @@ void	 charcat(char c, t_total *total)
 void	init_total(t_total *total, const char *format, va_list *ap)
 {
 	total->quanta = 0;
-	ft_bzero((void*)g_trunk,BID);
+	ft_bzero((void*)g_trunk, BID);
 	total->i = 0;
 	total->format = format;
 	total->ap = ap;
 }
 
-
 void	body_parser(t_total *total, t_body *body)
 {
 	ft_bzero(body, sizeof(t_body));
-	flags(total, body);
-	width_and_precision(total, body);
-	modifier(total, body);
+	while (isflag(*total->format) || is_modifier(*total->format) ||\
+			*total->format == '.' || ft_isdigit(*total->format))
+	{
+		flags(total, body);
+		width_and_precision(total, body);
+		modifier(total, body);
+	}
 }

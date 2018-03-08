@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   kitchen_integers.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/03/08 17:02:54 by abbenham          #+#    #+#             */
+/*   Updated: 2018/03/08 17:02:56 by abbenham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	trunk_integers_left_distance(t_total *total, t_body *body)
@@ -21,6 +33,7 @@ void	trunk_integers_left_distance(t_total *total, t_body *body)
 void	trunk_integers_left_zero(t_total *total, t_body *body)
 {
 	int	i;
+
 	i = 0;
 	while (!body->dash && !body->point && body->zero && i < body->left)
 	{
@@ -39,12 +52,10 @@ void	trunk_integers_value(char *s, t_total *total, t_body *body)
 	int	i;
 
 	i = 0;
-
 	if (!(!body->precis && body->point && *s == '0'))
 	{
 		while (i < body->len)
 		{
-		//printf("len %d \n", total->quanta);
 			charcat(s[i], total);
 			i++;
 		}

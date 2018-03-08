@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 13:07:29 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/04 15:18:33 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:56:19 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static void	ws_math(wchar_t *ws, t_body *body)
 		body->len = body->precis;
 	body->left = (body->width - body->len) * (body->dash ? 0 : 1);
 	body->right = (body->width - body->len) * body->dash;
-
 }
 
 static int	ws_casted(wchar_t *ws, t_total *total, t_body *body)
@@ -27,14 +26,6 @@ static int	ws_casted(wchar_t *ws, t_total *total, t_body *body)
 	int	i;
 
 	i = 0;
-	/*
-	   while (ws[i])
-	   {
-	   if (!invalide_utf8(ws[i]))
-	   return (-1);
-	   i++;
-	   }
-	   */
 	ws_math(ws, body);
 	trunk_unicode_left_distance(total, body);
 	trunk_unicode_ws(ws, total, body);
@@ -42,9 +33,10 @@ static int	ws_casted(wchar_t *ws, t_total *total, t_body *body)
 	return (1);
 }
 
-int	ws_on_trunk(t_total *total, t_body *body)
+int			ws_on_trunk(t_total *total, t_body *body)
 {
 	wchar_t *ws;
+
 	if (!(ws = va_arg(*total->ap, wchar_t *)))
 		return (ws_casted(L"(null)", total, body));
 	else

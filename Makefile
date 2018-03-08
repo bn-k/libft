@@ -6,7 +6,7 @@
 #    By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/04 13:10:20 by abbenham          #+#    #+#              #
-#    Updated: 2018/03/04 15:01:50 by abbenham         ###   ########.fr        #
+#    Updated: 2018/03/08 19:55:57 by abbenham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@
 ##########################################################################
 ##########################################################################
 
-.PHONY: clean $(NAME) re fclean all
-.SILENT:
+#.PHONY: clean $(NAME) re fclean all
+#.SILENT:
 
 NAME = libftprintf.a
 
@@ -91,14 +91,6 @@ SRC =\
 	 chars/ft_putchar_fd.c \
 	 chars/ft_isalnum.c \
 	 chars/ft_tolower.c \
-	 lst/ft_lstadd.c \
-	 lst/ft_list_push_params.c \
-	 lst/ft_lstnew.c \
-	 lst/ft_list_push_back.c \
-	 lst/ft_list_push_front.c \
-	 lst/ft_lstmap.c \
-	 lst/ft_lstdel.c \
-	 lst/ft_lstdelone.c \
 	 utf8/ft_putchar_utf8.c \
 	 utf8/ft_putstr_utf8.c \
 	 utf8/ft_strlen_utf8.c \
@@ -146,18 +138,15 @@ all: $(NAME)
 
 
 $(NAME): build $(OBJS)
-	echo "$(LOG_CLEAR)Create obj $(LOG_CYAN)$(LOG_NOCOLOR)$(LOG_UP)"
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
-	echo "$(LOG_BLACK)Compiling $(LOG_GREEN)done $(LOG_GREEN)✓$(LOG_NOCOLOR)"
 
 build:
 	mkdir -p $(D_OBJ)
 	mkdir -p $(OBJS_DIRS)
 
-
 clean:
-	rm -f $(LIBS)
+	rm -Rf $(D_OBJ)
 	rm -Rf $(OBJS_DIRS)
 	rm -Rf $(OBJDIR)
 
@@ -167,7 +156,6 @@ fclean: clean
 re: clean all
 
 $(D_OBJ)/%.o: $(D_SRC)/%.c
-	echo "$(LOG_NOCOLOR)Create obj $(LOG_YELLOW)$<$(LOG_NOCOLOR)$(LOG_UP)"
 	$(CC) -c -o $@ $< $(F_INC) $(FLAGS)
 
 

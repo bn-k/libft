@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 21:21:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/27 15:26:57 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 14:00:29 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char			*ft_itoa_iull(unsigned long long n)
 	int		nblen;
 
 	if (n == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	nblen = ft_nbrlen_iull(n);
 	if (!(s = (char *)malloc(sizeof(char) * nblen + 1)))
 		return (NULL);

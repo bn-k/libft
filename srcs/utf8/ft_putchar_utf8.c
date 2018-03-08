@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_utf8.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/03/08 17:26:42 by abbenham          #+#    #+#             */
+/*   Updated: 2018/03/08 17:26:43 by abbenham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "utf8.h"
 
 static size_t	two_byte_utf8(wchar_t wc)
@@ -24,7 +36,7 @@ static size_t	four_byte_utf8(wchar_t wc)
 	return (4);
 }
 
-size_t	ft_putchar_utf8(wchar_t wc)
+size_t			ft_putchar_utf8(wchar_t wc)
 {
 	if (wc < 0x80)
 	{

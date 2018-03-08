@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:07:47 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/21 20:46:45 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 17:35:39 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ size_t	ft_nbrlen_iull(unsigned long long nb)
 		return (1 + ft_nbrlen_iull(nb / 10));
 	return (0);
 }
-
 
 size_t	ft_nbrlen_base(unsigned long long nb, unsigned int lenbase)
 {

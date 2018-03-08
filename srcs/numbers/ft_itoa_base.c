@@ -6,18 +6,18 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 21:21:25 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/27 17:09:49 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 17:34:42 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev(char *s)
+char			*ft_strrev(char *s)
 {
 	int		beg;
 	int		end;
 	char	tmp;
-	
+
 	beg = 0;
 	end = ft_strlen(s) - 1;
 	while (beg <= end)
@@ -31,7 +31,7 @@ char	*ft_strrev(char *s)
 	return (s);
 }
 
-static int					ft_verif_doublon(char *s1, char *s2, int pos)
+static int		ft_verif_doublon(char *s1, char *s2, int pos)
 {
 	int				i;
 
@@ -47,7 +47,7 @@ static int					ft_verif_doublon(char *s1, char *s2, int pos)
 	return (0);
 }
 
-static int					ft_len_base(char *base)
+static int		ft_len_base(char *base)
 {
 	int				i;
 
@@ -69,10 +69,10 @@ char			*ft_itoa_base(unsigned long long n, char *base)
 {
 	char	*s;
 	int		div;
-	int 	i;
+	int		i;
 
 	if (n == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	s = (char *)malloc(sizeof(char) * 33);
 	i = 0;
 	div = ft_len_base(base);

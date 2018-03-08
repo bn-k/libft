@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 22:10:59 by abbenham          #+#    #+#             */
-/*   Updated: 2018/02/15 18:11:06 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 17:33:27 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ void	ft_putnbr(int n)
 			ft_putchar(n + 48);
 	}
 }
+
 void	ft_putnbrlong(long unsigned int n)
 {
-		if (n > 9)
-		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-		}
-		else
-			ft_putchar(n + 48);
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+	else
+		ft_putchar(n + 48);
 }

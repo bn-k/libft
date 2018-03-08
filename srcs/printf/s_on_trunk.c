@@ -6,33 +6,32 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 13:07:29 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/04 15:45:15 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:37:37 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	s_math(char *s, t_body *body)
+static void		s_math(char *s, t_body *body)
 {
 	body->len = ft_strlen(s);
 	if (body->point && body->len > body->precis)
-			body->len = body->precis;
+		body->len = body->precis;
 	body->left = (body->width - body->len) * (body->dash ? 0 : 1);
 	body->right = (body->width - body->len) * body->dash;
-	//printf("left %d, right %d , dash %d\n", body->left, body->right, body->dash);
-
 }
 
-int s_casted(char *s, t_total *total, t_body *body)
+int				s_casted(char *s, t_total *total, t_body *body)
 {
 	s_math(s, body);
 	trunk(s, total, body);
 	return (1);
 }
 
-int	s_on_trunk(t_total *total, t_body *body)
+int				s_on_trunk(t_total *total, t_body *body)
 {
 	char *s;
+
 	if (body->l)
 		return (ws_on_trunk(total, body));
 	else if (!(s = va_arg(*total->ap, char *)))

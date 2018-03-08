@@ -6,50 +6,54 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 13:07:29 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/04 15:20:43 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/08 16:41:53 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	o_math(long long *nb, t_body *body)
+static void		o_math(long long *nb, t_body *body)
 {
-	body->len = ft_nbrlen_base(*nb, 8);
-	if (!*nb)
-		body->sharp = 0;
+	if ((!body->precis && body->point) && *nb == 0 && !body->sharp)
+		body->len = 0;
+	else
+		body->len = ft_nbrlen_base(*nb, 8);
 	if (body->point && nb != 0)
 		body->fill = POS(body->precis - body->len);
-	body->left = POS(body->width - body->len - body->fill - HASH ) * (body->dash ? 0 : 1);
-	body->right = POS(body->width - body->len - body->fill - HASH) * body->dash;
-	//printf("left %d, right %d , dash %d\n", body->left, body->right, body->dash);
-	//printf("fill %d, sharp %d , dash %d\n", body->fill, body->sharp, body->dash);
+	body->sharp = body->sharp * ((!PAD_ZERO && !body->fill) && *nb != 0);
+	body->left = POS(body->width - body->len - body->fill - body->sharp)\
+				* (body->dash ? 0 : 1);
+	body->right = POS(body->width - body->len - body->fill - body->sharp)\
+				* body->dash;
 }
 
-static int		o_casted(long long nb, t_total *total, t_body *body)
+static int		cast(long long nb, t_total *total, t_body *body)
 {
 	char *s;
+
 	o_math(&nb, body);
 	s = ft_itoa_base(nb, "01234567");
 	trunk_o(s, total, body);
+	free(s);
 	return (1);
 }
 
-int	o_on_trunk(t_total *total, t_body *body)
+int				o_on_trunk(t_total *tt, t_body *bd)
 {
-	if (total->format[-1] == 'O')
-		return (o_casted((unsigned long long)va_arg(*total->ap, long long) , total, body));
-	else if (body->h == 1)
-		return (o_casted((unsigned short)va_arg(*total->ap, int), total, body));
-	else if (body->z == 1)
-		return (o_casted((size_t)va_arg(*total->ap, size_t), total, body));
-	else if (body->h == 2)
-		return (o_casted((unsigned char)va_arg(*total->ap, int), total, body));
-	else if (body->l == 1)
-		return (o_casted((unsigned long long)va_arg(*total->ap, long) , total, body));
-	else if (body->l == 2)
-		return (o_casted((unsigned long long)va_arg(*total->ap, long long) , total, body));
-	else if (body->j == 1)
-		return (o_casted((uintmax_t)va_arg(*total->ap, long long) , total, body));
+	if (tt->format[-1] == 'O')
+		return (cast((unsigned long long)va_arg(*tt->ap, long long), tt, bd));
+	else if (bd->h == 1)
+		return (cast((unsigned short)va_arg(*tt->ap, int), tt, bd));
+	else if (bd->z == 1)
+		return (cast((size_t)va_arg(*tt->ap, size_t), tt, bd));
+	else if (bd->h == 2)
+		return (cast((unsigned char)va_arg(*tt->ap, int), tt, bd));
+	else if (bd->l == 1)
+		return (cast((unsigned long long)va_arg(*tt->ap, long), tt, bd));
+	else if (bd->l == 2)
+		return (cast((unsigned long long)va_arg(*tt->ap, long long), tt, bd));
+	else if (bd->j == 1)
+		return (cast((uintmax_t)va_arg(*tt->ap, long long), tt, bd));
 	else
-		return (o_casted((unsigned int)va_arg(*total->ap, unsigned int) , total, body));
+		return (cast((unsigned int)va_arg(*tt->ap, unsigned int), tt, bd));
 }
