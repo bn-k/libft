@@ -6,7 +6,7 @@
 #    By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/04 13:10:20 by abbenham          #+#    #+#              #
-#    Updated: 2018/03/08 19:55:57 by abbenham         ###   ########.fr        #
+#    Updated: 2018/03/09 15:07:52 by abbenham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,51 +113,30 @@ SRC =\
 	 printf/ws_on_trunk.c \
 	 printf/mod_on_trunk.c \
 
-
-# SPECIAL CHARS
-
-LOG_CLEAR		= \033[2K
-LOG_UP 			= \033[A
-LOG_NOCOLOR		= \033[0m
-LOG_BLACK		= \033[1;30m
-LOG_RED			= \033[1;31m
-LOG_GREEN		= \033[1;32m
-LOG_YELLOW		= \033[1;33m
-LOG_BLUE		= \033[1;34m
-LOG_VIOLET		= \033[1;35m
-LOG_CYAN		= \033[1;36m
-LOG_WHITE		= \033[1;37m
-
-
-SRCS = $(addprefix $(D_SRC)/, $(SRC))
-OBJS = $(addprefix $(D_OBJ)/, $(addsuffix .o, $(basename $(SRC))))
-F_INC = $(addsuffix $(D_INC), $(basename -I))
+OBJS= $(addprefix $(D_OBJ)/, $(addsuffix .o, $(basename $(SRC))))
 OBJS_DIRS = $(sort $(dir $(OBJS)))
+INC = $(addprefix -I, $(D_INC))
 
 all: $(NAME)
 
-
-$(NAME): build $(OBJS)
+$(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
-build:
-	mkdir -p $(D_OBJ)
+dirs:
+	mkdir -p objs
 	mkdir -p $(OBJS_DIRS)
 
 clean:
-	rm -Rf $(D_OBJ)
-	rm -Rf $(OBJS_DIRS)
-	rm -Rf $(OBJDIR)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
 
-re: clean all
+re: fclean all
 
 $(D_OBJ)/%.o: $(D_SRC)/%.c
-	$(CC) -c -o $@ $< $(F_INC) $(FLAGS)
-
+	$(CC) -c -o $@ $< $(INC) $(FLAGS)
 
 ##########################################################################
 ##########################################################################

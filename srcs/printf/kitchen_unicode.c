@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 17:05:43 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/08 17:05:44 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/03/09 17:53:57 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	trunk_unicode_ws(wchar_t *ws, t_total *total, t_body *body)
 	s_i = 0;
 	while (s_i < body->len)
 	{
-		s_i += conv_utf8(&s[s_i], ws[ws_i], 4);
+		s_i += conv_utf8(&s[s_i], ws[ws_i], MB_CUR_MAX);
 		ws_i++;
 	}
 	s_i = 0;
