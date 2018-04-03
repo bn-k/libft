@@ -18,7 +18,7 @@
 #.PHONY: clean $(NAME) re fclean all
 #.SILENT:
 
-NAME = libftprintf.a
+NAME = libft.a
 
 # compilation
 CC = clang
@@ -82,6 +82,7 @@ SRC =\
 	 memory/ft_memdel.c \
 	 memory/ft_memmove.c \
 	 file/ft_display_file.c \
+	 file/get_next_line.c \
 	 chars/ft_isdigit.c \
 	 chars/ft_isascii.c \
 	 chars/ft_isprint.c \
