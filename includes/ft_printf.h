@@ -60,9 +60,9 @@ typedef struct	s_body
 
 typedef struct	s_on_trunk
 {
-	char		code;
-	int			(*t_func)(t_total*, t_body*);
-}				t_on_trunk;
+	char	code;
+	int	(*t_func)(t_total*, t_body*);
+}		t_on_trunk;
 
 void			trunk(char *s, t_total *total, t_body *body);
 void			trunk_unicode_wc(wchar_t *s, t_total *total, t_body *body);

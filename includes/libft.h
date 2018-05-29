@@ -15,9 +15,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <ft_printf.h>
+# include <list.h>
 # include <limits.h>
 # include "utf8.h"
 
+char			**tabcat(char **tab, char *ptr, int new_size);
 size_t			ft_nbrlen(int long long nb);
 size_t			ft_nbrlen_iull(unsigned long long nb);
 size_t			ft_nbrlen_base(unsigned long long nb, unsigned int lenbase);
