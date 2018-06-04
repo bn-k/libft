@@ -116,6 +116,7 @@ SRC =\
      printf/mod_on_trunk.c \
      list/ft_lstpushiter.c\
      list/ft_lstnew.c\
+     list/ft_lstlast.c\
      list/ft_lstdup.c\
      list/ft_lstaddback.c\
      list/ft_lstpushafter.c\

@@ -15,6 +15,8 @@ t_lst			*ft_lstnew(void *data);
 int			ft_lstprintnb(t_lst *lst);
 int			ft_lstprintstr(t_lst *lst);
 int			deref(int *nb);
+t_lst			*ft_lstlast(t_lst *lst);
+
 
 
 
