@@ -6,11 +6,25 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 14:28:22 by abbenham          #+#    #+#             */
-/*   Updated: 2017/11/15 14:52:21 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/06/12 18:02:06 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isdigit(int c)
 {
 	return ((c >= '0' && c <= '9') ? 1 : 0);
+}
+
+int		str_isdigit(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
