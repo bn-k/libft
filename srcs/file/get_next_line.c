@@ -5,19 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 12:36:53 by abbenham          #+#    #+#             */
-/*   Updated: 2018/01/08 15:08:26 by abbenham         ###   ########.fr       */
+/*   Created: 2018/06/13 12:00:10 by abbenham          #+#    #+#             */
+/*   Updated: 2018/06/13 12:03:42 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "get_next_line.h"
 
-char	*ft_strxdup(const char *s1)
+char		*ft_strxdup(const char *s1)
 {
 	char	*dup;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -31,7 +30,7 @@ char	*ft_strxdup(const char *s1)
 	return (dup);
 }
 
-int	end_of_line(char **line, t_x *x)
+int			end_of_line(char **line, t_x *x)
 {
 	char	*next;
 	char	*tmp;
@@ -54,12 +53,12 @@ int	end_of_line(char **line, t_x *x)
 		ft_bzero(x->s, ft_strlen(tmp));
 		ft_memdel((void **)&x->s);
 	}
-	return(1);
+	return (1);
 }
 
-int	reader(const int fd, t_x *x)
+int			reader(const int fd, t_x *x)
 {
-	char 	*tmp;
+	char	*tmp;
 
 	while (x->size && !(ft_strchr(x->s, '\n')))
 	{
@@ -78,9 +77,9 @@ int	reader(const int fd, t_x *x)
 	return (1);
 }
 
-t_x	*ft_init(int fd)
+t_x			*ft_init(int fd)
 {
-	t_x	*list;
+	t_x		*list;
 
 	if (!(list = (t_x *)malloc(sizeof(t_x))))
 		return (NULL);
@@ -96,10 +95,10 @@ t_x	*ft_init(int fd)
 	return (list);
 }
 
-int 	get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	static t_x	*list;
-	t_x		*x;
+	t_x			*x;
 
 	list = list ? list : ft_init(fd);
 	x = list;
@@ -111,12 +110,12 @@ int 	get_next_line(const int fd, char **line)
 		x = x->next;
 	}
 	if (fd < 0 || !line || BUFF_SIZE <= 0 ||\
-		       	read(fd, x->buf, 0) == -1 || fd == 1)
+			read(fd, x->buf, 0) == -1 || fd == 1)
 		return (-1);
 	if (!(reader(fd, x)))
 		return (-1);
 	if (x->s)
 		if (*x->s)
 			return (end_of_line(line, x));
-	return(0);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/08 18:16:15 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/08 18:51:00 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/06/28 12:18:13 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ typedef struct	s_body
 
 typedef struct	s_on_trunk
 {
-	char	code;
-	int	(*t_func)(t_total*, t_body*);
-}		t_on_trunk;
+	char		code;
+	int			(*t_func)(t_total*, t_body*);
+}				t_on_trunk;
 
 void			trunk(char *s, t_total *total, t_body *body);
 void			trunk_unicode_wc(wchar_t *s, t_total *total, t_body *body);

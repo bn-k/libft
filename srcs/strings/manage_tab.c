@@ -1,10 +1,22 @@
-#include <stdlib.h>
-#include "libft.h" 
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage_tab.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/13 11:51:13 by abbenham          #+#    #+#             */
+/*   Updated: 2018/06/13 11:52:17 by abbenham         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char	**tabcat(char **tab, char *ptr, int new_size)
+#include <stdlib.h>
+#include "libft.h"
+
+char		**tabcat(char **tab, char *ptr, int new_size)
 {
 	char	**new;
-	int	i;
+	int		i;
 
 	i = 0;
 	new = (char**)malloc(sizeof(char) * (new_size + 2));
@@ -16,5 +28,5 @@ char	**tabcat(char **tab, char *ptr, int new_size)
 		}
 	new[i] = ptr;
 	new[i + 1] = 0;
-	return(new);
+	return (new);
 }

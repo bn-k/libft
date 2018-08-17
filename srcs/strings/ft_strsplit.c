@@ -6,7 +6,7 @@
 /*   By: abbenham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 16:28:08 by abbenham          #+#    #+#             */
-/*   Updated: 2018/06/12 18:38:06 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/06/13 11:51:05 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char			**ft_strsplit(char const *s, char c)
 	int			b;
 	int			p;
 	char		**tab;
-	
+
 	a = 0;
 	b = 0;
 	p = 0;

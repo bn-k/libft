@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/03 13:07:29 by abbenham          #+#    #+#             */
-/*   Updated: 2018/03/09 17:45:34 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/06/13 11:52:44 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		o_math(long long *nb, t_body *body)
 		body->len = ft_nbrlen_base(*nb, 8);
 	if (body->point && nb != 0)
 		body->fill = POS(body->precis - body->len);
-	body->sharp = body->sharp * (( !body->fill) && *nb != 0);
+	body->sharp = body->sharp * ((!body->fill) && *nb != 0);
 	body->left = POS(body->width - body->len - body->fill - body->sharp)\
 				* (body->dash ? 0 : 1);
 	body->right = POS(body->width - body->len - body->fill - body->sharp)\
