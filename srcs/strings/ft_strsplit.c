@@ -6,7 +6,7 @@
 /*   By: abbenham <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 16:28:08 by abbenham          #+#    #+#             */
-/*   Updated: 2018/06/13 11:51:05 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/08/17 14:52:32 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char			**ft_strsplit(char const *s, char c)
 	a = 0;
 	b = 0;
 	p = 0;
-	if (s == 0 || !(tab = (char **)malloc(sizeof(tab) * wdlen(s, c, &b) + 1)))
+	if (s == 0 || !(tab = (char **)malloc(sizeof(tab) * (wdlen(s, c, &b) + 1))))
 		return (0);
 	ft_test(s, c, &p);
 	while (s[p])

@@ -6,7 +6,7 @@
 #    By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/04 13:10:20 by abbenham          #+#    #+#              #
-#    Updated: 2018/03/09 15:07:52 by abbenham         ###   ########.fr        #
+#    Updated: 2018/08/17 16:02:37 by abbenham         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ SRC =\
      numbers/ft_itoa_base.c \
      numbers/ft_nbrlen.c \
      numbers/ft_print_adress.c \
+     memory/ft_freetab.c \
      memory/ft_memcmp.c \
      memory/ft_bzero.c \
      memory/ft_memcpy.c \

@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   manage_tab.c                                       :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/13 11:51:13 by abbenham          #+#    #+#             */
-/*   Updated: 2018/08/18 20:56:16 by abbenham         ###   ########.fr       */
+/*   Created: 2018/08/17 15:54:34 by abbenham          #+#    #+#             */
+/*   Updated: 2018/08/17 16:11:09 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char		**tabcat(char **tab, char *ptr, int new_size)
+int		ft_tablen(void **tab)
 {
-	char	**new;
 	int		i;
 
 	i = 0;
-	new = (char**)malloc(sizeof(char*) * (new_size + 2));
 	if (tab)
-		while (i < new_size - 1)
+	{
+		while (tab[i])
+			i++;
+	}
+	return (i);
+}
+
+void	ft_freetab(void **tab, int size)
+{
+	int		i;
+
+	if (tab)
+	{
+		i = 0;
+		while (i < size)
 		{
-			new[i] = tab[i];
+			ft_memdel((void**)&tab[i]);
 			i++;
 		}
-	new[i] = ptr;
-	new[i + 1] = NULL;
-	return (new);
+	}
 }

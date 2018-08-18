@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/28 12:14:01 by abbenham          #+#    #+#             */
-/*   Updated: 2018/06/28 12:14:03 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/08/17 16:03:10 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ size_t			ft_nbrlen(int long long nb);
 size_t			ft_nbrlen_iull(unsigned long long nb);
 size_t			ft_nbrlen_base(unsigned long long nb, unsigned int lenbase);
 int				ft_atoi(const char *str);
+long			ft_atoi_long(const char *str);
 char			*ft_itoa(int n);
 char			*ft_itoa_iull(unsigned long long n);
 char			*ft_itoa_base(unsigned long long n, char *base);
@@ -51,6 +52,8 @@ void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
+int				ft_tablen(void **tab);
+void			ft_freetab(void **tab, int size);
 
 size_t			ft_putstr(char const *s);
 void			ft_putendl(char const *s);

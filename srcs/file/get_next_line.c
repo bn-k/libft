@@ -6,7 +6,7 @@
 /*   By: abbenham <newcratie@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/13 12:00:10 by abbenham          #+#    #+#             */
-/*   Updated: 2018/06/13 12:03:42 by abbenham         ###   ########.fr       */
+/*   Updated: 2018/08/17 14:55:32 by abbenham         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ t_x			*ft_init(int fd)
 	list->size = 1;
 	list->fd = fd;
 	list->next = NULL;
-	ft_bzero(list->buf, BUFF_SIZE + 4);
-	ft_bzero(list->s, BUFF_SIZE + 4);
+	ft_bzero(list->buf, BUFF_SIZE + 1);
+	ft_bzero(list->s, BUFF_SIZE + 1);
 	return (list);
 }
 
